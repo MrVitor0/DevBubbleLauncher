@@ -16,6 +16,337 @@ const ConfigManager = require("./configmanager");
 
 const logger = LoggerUtil.getLogger("ProcessBuilder");
 
+const NBT_TAG = Object.freeze({
+  End: 0,
+  Byte: 1,
+  Short: 2,
+  Int: 3,
+  Long: 4,
+  Float: 5,
+  Double: 6,
+  ByteArray: 7,
+  String: 8,
+  List: 9,
+  Compound: 10,
+  IntArray: 11,
+  LongArray: 12,
+});
+
+const LAUNCHER_OPTIONS_PRESET_PATH = path.join(
+  __dirname,
+  "..",
+  "default-options.txt",
+);
+const LAUNCHER_OPTIONS_PRESET_VERSION = "2026-05-22-1";
+const LAUNCHER_OPTIONS_PRESET_MARKER = ".devbubble-options-preset-version";
+const LAUNCHER_OPTIONS_PRESET_SKIP_KEYS = new Set([
+  "resourcePacks",
+  "incompatibleResourcePacks",
+  "lastServer",
+  "joinedFirstServer",
+]);
+
+const DEFAULT_MULTIPLAYER_SERVER = Object.freeze({
+  name: "Melody",
+  ip: "melody.apexmc.co",
+});
+
+const DEFAULT_RESOURCE_PACKS = Object.freeze([
+  "FreshAnimations_v1.10.4.zip",
+  "FA+All_Extensions-v1.8.1.zip",
+  "boss-refreshed-v2-1.19-1.21.zip",
+]);
+
+const DEFAULT_SHADER_PACKS = Object.freeze([
+  "ComplementaryReimagined_r5.8.1.zip",
+  "ComplementaryUnbound_r5.8.1.zip",
+]);
+
+let cachedLauncherOptionsPreset = null;
+
+function loadLauncherOptionsPreset() {
+  if (cachedLauncherOptionsPreset != null) {
+    return cachedLauncherOptionsPreset;
+  }
+
+  const raw = fs.readFileSync(LAUNCHER_OPTIONS_PRESET_PATH, "utf8");
+  const lines = raw.replace(/\r\n/g, "\n").split("\n");
+
+  cachedLauncherOptionsPreset = lines.flatMap((line) => {
+    if (line.length === 0) {
+      return [];
+    }
+
+    const separatorIndex = line.indexOf(":");
+    if (separatorIndex === -1) {
+      return [];
+    }
+
+    const key = line.substring(0, separatorIndex);
+    if (LAUNCHER_OPTIONS_PRESET_SKIP_KEYS.has(key)) {
+      return [];
+    }
+
+    return [[key, line.substring(separatorIndex + 1)]];
+  });
+
+  return cachedLauncherOptionsPreset;
+}
+
+function readNbtString(state) {
+  const length = state.buffer.readUInt16BE(state.offset);
+  state.offset += 2;
+
+  const value = state.buffer.toString(
+    "utf8",
+    state.offset,
+    state.offset + length,
+  );
+  state.offset += length;
+
+  return value;
+}
+
+function readNbtPayload(state, tagType) {
+  switch (tagType) {
+    case NBT_TAG.Byte: {
+      const value = state.buffer.readInt8(state.offset);
+      state.offset += 1;
+      return value;
+    }
+    case NBT_TAG.Short: {
+      const value = state.buffer.readInt16BE(state.offset);
+      state.offset += 2;
+      return value;
+    }
+    case NBT_TAG.Int: {
+      const value = state.buffer.readInt32BE(state.offset);
+      state.offset += 4;
+      return value;
+    }
+    case NBT_TAG.Long: {
+      const value = state.buffer.readBigInt64BE(state.offset);
+      state.offset += 8;
+      return value;
+    }
+    case NBT_TAG.Float: {
+      const value = state.buffer.readFloatBE(state.offset);
+      state.offset += 4;
+      return value;
+    }
+    case NBT_TAG.Double: {
+      const value = state.buffer.readDoubleBE(state.offset);
+      state.offset += 8;
+      return value;
+    }
+    case NBT_TAG.ByteArray: {
+      const length = state.buffer.readInt32BE(state.offset);
+      state.offset += 4;
+
+      const value = Buffer.from(
+        state.buffer.subarray(state.offset, state.offset + length),
+      );
+      state.offset += length;
+
+      return value;
+    }
+    case NBT_TAG.String:
+      return readNbtString(state);
+    case NBT_TAG.List: {
+      const childType = state.buffer.readUInt8(state.offset);
+      state.offset += 1;
+
+      const length = state.buffer.readInt32BE(state.offset);
+      state.offset += 4;
+
+      const value = [];
+      for (let i = 0; i < length; i++) {
+        value.push({
+          type: childType,
+          value: readNbtPayload(state, childType),
+        });
+      }
+
+      return {
+        childType,
+        value,
+      };
+    }
+    case NBT_TAG.Compound: {
+      const value = {};
+
+      while (state.offset < state.buffer.length) {
+        const childType = state.buffer.readUInt8(state.offset);
+        state.offset += 1;
+
+        if (childType === NBT_TAG.End) {
+          break;
+        }
+
+        const name = readNbtString(state);
+        value[name] = {
+          type: childType,
+          value: readNbtPayload(state, childType),
+        };
+      }
+
+      return value;
+    }
+    case NBT_TAG.IntArray: {
+      const length = state.buffer.readInt32BE(state.offset);
+      state.offset += 4;
+
+      const value = [];
+      for (let i = 0; i < length; i++) {
+        value.push(state.buffer.readInt32BE(state.offset));
+        state.offset += 4;
+      }
+
+      return value;
+    }
+    case NBT_TAG.LongArray: {
+      const length = state.buffer.readInt32BE(state.offset);
+      state.offset += 4;
+
+      const value = [];
+      for (let i = 0; i < length; i++) {
+        value.push(state.buffer.readBigInt64BE(state.offset));
+        state.offset += 8;
+      }
+
+      return value;
+    }
+    default:
+      throw new Error(`Unsupported NBT tag type ${tagType}`);
+  }
+}
+
+function parseNbt(buffer) {
+  const state = {
+    buffer,
+    offset: 0,
+  };
+  const type = state.buffer.readUInt8(state.offset);
+  state.offset += 1;
+
+  const name = readNbtString(state);
+
+  return {
+    type,
+    name,
+    value: readNbtPayload(state, type),
+  };
+}
+
+function writeNbtString(value) {
+  const stringBuffer = Buffer.from(String(value), "utf8");
+  const lengthBuffer = Buffer.alloc(2);
+  lengthBuffer.writeUInt16BE(stringBuffer.length, 0);
+
+  return Buffer.concat([lengthBuffer, stringBuffer]);
+}
+
+function writeNbtPayload(tag) {
+  switch (tag.type) {
+    case NBT_TAG.End:
+      return Buffer.alloc(0);
+    case NBT_TAG.Byte: {
+      const buffer = Buffer.alloc(1);
+      buffer.writeInt8(Number(tag.value), 0);
+      return buffer;
+    }
+    case NBT_TAG.Short: {
+      const buffer = Buffer.alloc(2);
+      buffer.writeInt16BE(Number(tag.value), 0);
+      return buffer;
+    }
+    case NBT_TAG.Int: {
+      const buffer = Buffer.alloc(4);
+      buffer.writeInt32BE(Number(tag.value), 0);
+      return buffer;
+    }
+    case NBT_TAG.Long: {
+      const buffer = Buffer.alloc(8);
+      buffer.writeBigInt64BE(BigInt(tag.value), 0);
+      return buffer;
+    }
+    case NBT_TAG.Float: {
+      const buffer = Buffer.alloc(4);
+      buffer.writeFloatBE(Number(tag.value), 0);
+      return buffer;
+    }
+    case NBT_TAG.Double: {
+      const buffer = Buffer.alloc(8);
+      buffer.writeDoubleBE(Number(tag.value), 0);
+      return buffer;
+    }
+    case NBT_TAG.ByteArray: {
+      const payload = Buffer.isBuffer(tag.value)
+        ? tag.value
+        : Buffer.from(tag.value);
+      const lengthBuffer = Buffer.alloc(4);
+      lengthBuffer.writeInt32BE(payload.length, 0);
+      return Buffer.concat([lengthBuffer, payload]);
+    }
+    case NBT_TAG.String:
+      return writeNbtString(tag.value);
+    case NBT_TAG.List: {
+      const childType = tag.childType ?? tag.value[0]?.type ?? NBT_TAG.End;
+      const lengthBuffer = Buffer.alloc(4);
+      lengthBuffer.writeInt32BE(tag.value.length, 0);
+
+      return Buffer.concat([
+        Buffer.from([childType]),
+        lengthBuffer,
+        ...tag.value.map((entry) => writeNbtPayload(entry)),
+      ]);
+    }
+    case NBT_TAG.Compound: {
+      const parts = [];
+      for (const [name, child] of Object.entries(tag.value)) {
+        parts.push(Buffer.from([child.type]));
+        parts.push(writeNbtString(name));
+        parts.push(writeNbtPayload(child));
+      }
+      parts.push(Buffer.from([NBT_TAG.End]));
+
+      return Buffer.concat(parts);
+    }
+    case NBT_TAG.IntArray: {
+      const lengthBuffer = Buffer.alloc(4);
+      lengthBuffer.writeInt32BE(tag.value.length, 0);
+      const valueBuffers = tag.value.map((value) => {
+        const buffer = Buffer.alloc(4);
+        buffer.writeInt32BE(Number(value), 0);
+        return buffer;
+      });
+
+      return Buffer.concat([lengthBuffer, ...valueBuffers]);
+    }
+    case NBT_TAG.LongArray: {
+      const lengthBuffer = Buffer.alloc(4);
+      lengthBuffer.writeInt32BE(tag.value.length, 0);
+      const valueBuffers = tag.value.map((value) => {
+        const buffer = Buffer.alloc(8);
+        buffer.writeBigInt64BE(BigInt(value), 0);
+        return buffer;
+      });
+
+      return Buffer.concat([lengthBuffer, ...valueBuffers]);
+    }
+    default:
+      throw new Error(`Unsupported NBT tag type ${tag.type}`);
+  }
+}
+
+function serializeNbt(tag) {
+  return Buffer.concat([
+    Buffer.from([tag.type]),
+    writeNbtString(tag.name ?? ""),
+    writeNbtPayload(tag),
+  ]);
+}
+
 /**
  * Only forge and fabric are top level mod loaders.
  *
@@ -57,6 +388,7 @@ class ProcessBuilder {
    */
   build() {
     fs.ensureDirSync(this.gameDir);
+    this._applyLauncherDefaults();
     const tempNativePath = path.join(
       os.tmpdir(),
       ConfigManager.getTempNativeFolder(),
@@ -139,6 +471,298 @@ class ProcessBuilder {
     });
 
     return child;
+  }
+
+  _applyLauncherDefaults() {
+    try {
+      this._ensureOptionsDefaults();
+    } catch (err) {
+      logger.warn("Failed to update options.txt defaults", err);
+    }
+
+    try {
+      this._ensureShaderpackDefault();
+    } catch (err) {
+      logger.warn("Failed to update shaderpack defaults", err);
+    }
+
+    try {
+      this._ensureSavedMultiplayerServer();
+    } catch (err) {
+      logger.warn("Failed to update servers.dat defaults", err);
+    }
+  }
+
+  _resolveAvailableFiles(subdirectory, preferredFiles) {
+    return preferredFiles.filter((fileName) =>
+      fs.pathExistsSync(path.join(this.gameDir, subdirectory, fileName)),
+    );
+  }
+
+  _parseOptionsArray(rawValue) {
+    if (typeof rawValue !== "string") {
+      return null;
+    }
+
+    try {
+      const parsed = JSON.parse(rawValue);
+      return Array.isArray(parsed) ? parsed : null;
+    } catch (_err) {
+      return null;
+    }
+  }
+
+  _seedArrayOption(nextLines, key, values) {
+    const prefix = `${key}:`;
+    const nextLine = `${prefix}${JSON.stringify(values)}`;
+    const existingIndex = nextLines.findIndex((line) =>
+      line.startsWith(prefix),
+    );
+
+    if (existingIndex === -1) {
+      nextLines.push(nextLine);
+      return true;
+    }
+
+    const currentValue = nextLines[existingIndex].substring(prefix.length);
+    const parsedValue = this._parseOptionsArray(currentValue);
+
+    if (parsedValue == null || parsedValue.length > 0) {
+      return false;
+    }
+
+    if (nextLines[existingIndex] === nextLine) {
+      return false;
+    }
+
+    nextLines[existingIndex] = nextLine;
+    return true;
+  }
+
+  _upsertOptionLine(nextLines, key, value) {
+    const prefix = `${key}:`;
+    const nextLine = `${prefix}${value}`;
+    const existingIndex = nextLines.findIndex((line) =>
+      line.startsWith(prefix),
+    );
+
+    if (existingIndex === -1) {
+      nextLines.push(nextLine);
+      return true;
+    }
+
+    if (nextLines[existingIndex] === nextLine) {
+      return false;
+    }
+
+    nextLines[existingIndex] = nextLine;
+    return true;
+  }
+
+  _getOptionsPresetMarkerPath() {
+    return path.join(this.gameDir, LAUNCHER_OPTIONS_PRESET_MARKER);
+  }
+
+  _getAppliedOptionsPresetVersion() {
+    const markerPath = this._getOptionsPresetMarkerPath();
+
+    if (!fs.pathExistsSync(markerPath)) {
+      return null;
+    }
+
+    return fs.readFileSync(markerPath, "utf8").trim();
+  }
+
+  _markOptionsPresetApplied() {
+    fs.writeFileSync(
+      this._getOptionsPresetMarkerPath(),
+      `${LAUNCHER_OPTIONS_PRESET_VERSION}${os.EOL}`,
+      "utf8",
+    );
+  }
+
+  _applyLauncherOptionsPreset(nextLines) {
+    let changed = false;
+
+    for (const [key, value] of loadLauncherOptionsPreset()) {
+      changed = this._upsertOptionLine(nextLines, key, value) || changed;
+    }
+
+    return changed;
+  }
+
+  _ensureOptionsDefaults() {
+    const optionsPath = path.join(this.gameDir, "options.txt");
+    const raw = fs.pathExistsSync(optionsPath)
+      ? fs.readFileSync(optionsPath, "utf8")
+      : "";
+    const lines = raw.length > 0 ? raw.replace(/\r\n/g, "\n").split("\n") : [];
+    const normalizedLines =
+      lines.length > 0 && lines[lines.length - 1] === ""
+        ? lines.slice(0, -1)
+        : lines;
+    const nextLines = [...normalizedLines];
+    let changed = false;
+    const shouldApplyPreset =
+      this._getAppliedOptionsPresetVersion() !==
+      LAUNCHER_OPTIONS_PRESET_VERSION;
+
+    if (shouldApplyPreset) {
+      changed = this._applyLauncherOptionsPreset(nextLines) || changed;
+    }
+
+    const defaultResourcePacks = this._resolveAvailableFiles(
+      "resourcepacks",
+      DEFAULT_RESOURCE_PACKS,
+    );
+
+    if (defaultResourcePacks.length > 0) {
+      changed =
+        this._seedArrayOption(nextLines, "resourcePacks", [
+          "vanilla",
+          ...defaultResourcePacks.map((fileName) => `file/${fileName}`),
+        ]) || changed;
+      changed =
+        this._seedArrayOption(
+          nextLines,
+          "incompatibleResourcePacks",
+          defaultResourcePacks.map((fileName) => `file/${fileName}`),
+        ) || changed;
+    }
+
+    if (changed) {
+      fs.writeFileSync(
+        optionsPath,
+        `${nextLines.join(os.EOL)}${os.EOL}`,
+        "utf8",
+      );
+    }
+
+    if (shouldApplyPreset) {
+      this._markOptionsPresetApplied();
+    }
+  }
+
+  _ensureShaderpackDefault() {
+    const desiredShaderPack = this._resolveAvailableFiles(
+      "shaderpacks",
+      DEFAULT_SHADER_PACKS,
+    )[0];
+
+    if (desiredShaderPack == null) {
+      return;
+    }
+
+    const optionsShadersPath = path.join(this.gameDir, "optionsshaders.txt");
+    const raw = fs.pathExistsSync(optionsShadersPath)
+      ? fs.readFileSync(optionsShadersPath, "utf8")
+      : "";
+    const lines = raw.length > 0 ? raw.replace(/\r\n/g, "\n").split("\n") : [];
+    const normalizedLines =
+      lines.length > 0 && lines[lines.length - 1] === ""
+        ? lines.slice(0, -1)
+        : lines;
+    const existingIndex = normalizedLines.findIndex((line) =>
+      line.startsWith("shaderPack="),
+    );
+
+    if (existingIndex !== -1) {
+      const currentValue = normalizedLines[existingIndex]
+        .substring("shaderPack=".length)
+        .trim();
+
+      if (
+        currentValue.length > 0 &&
+        currentValue !== "OFF" &&
+        currentValue !== desiredShaderPack
+      ) {
+        return;
+      }
+
+      if (currentValue === desiredShaderPack) {
+        return;
+      }
+
+      normalizedLines[existingIndex] = `shaderPack=${desiredShaderPack}`;
+    } else {
+      normalizedLines.push(`shaderPack=${desiredShaderPack}`);
+    }
+
+    fs.writeFileSync(
+      optionsShadersPath,
+      `${normalizedLines.join(os.EOL)}${os.EOL}`,
+      "utf8",
+    );
+  }
+
+  _ensureSavedMultiplayerServer() {
+    const serversPath = path.join(this.gameDir, "servers.dat");
+    let rootTag = {
+      type: NBT_TAG.Compound,
+      name: "",
+      value: {},
+    };
+    let changed = !fs.pathExistsSync(serversPath);
+
+    if (!changed) {
+      rootTag = parseNbt(fs.readFileSync(serversPath));
+    }
+
+    if (rootTag.type !== NBT_TAG.Compound) {
+      throw new Error("servers.dat root tag must be a compound");
+    }
+
+    let serversTag = rootTag.value.servers;
+    if (
+      serversTag == null ||
+      serversTag.type !== NBT_TAG.List ||
+      serversTag.childType !== NBT_TAG.Compound
+    ) {
+      serversTag = {
+        type: NBT_TAG.List,
+        childType: NBT_TAG.Compound,
+        value: [],
+      };
+      rootTag.value.servers = serversTag;
+      changed = true;
+    }
+
+    const targetIp = DEFAULT_MULTIPLAYER_SERVER.ip.toLowerCase();
+    const existingServer = serversTag.value.find((entry) => {
+      if (entry.type !== NBT_TAG.Compound) {
+        return false;
+      }
+
+      const serverIp = entry.value?.ip;
+      return (
+        serverIp?.type === NBT_TAG.String &&
+        serverIp.value.toLowerCase() === targetIp
+      );
+    });
+
+    if (existingServer == null) {
+      serversTag.value.push({
+        type: NBT_TAG.Compound,
+        value: {
+          name: {
+            type: NBT_TAG.String,
+            value: DEFAULT_MULTIPLAYER_SERVER.name,
+          },
+          ip: {
+            type: NBT_TAG.String,
+            value: DEFAULT_MULTIPLAYER_SERVER.ip,
+          },
+        },
+      });
+      changed = true;
+    }
+
+    if (!changed) {
+      return;
+    }
+
+    // Minecraft stores the multiplayer list as raw NBT in servers.dat.
+    fs.writeFileSync(serversPath, serializeNbt(rootTag));
   }
 
   /**
@@ -567,8 +1191,7 @@ class ProcessBuilder {
               val = this.authUser.displayName.trim();
               break;
             case "version_name":
-              //val = vanillaManifest.id
-              val = this.server.rawServer.id;
+              val = this.modManifest.id;
               break;
             case "game_directory":
               val = this.gameDir;
@@ -657,8 +1280,7 @@ class ProcessBuilder {
             val = this.authUser.displayName.trim();
             break;
           case "version_name":
-            //val = vanillaManifest.id
-            val = this.server.rawServer.id;
+            val = this.modManifest.id;
             break;
           case "game_directory":
             val = this.gameDir;
@@ -951,7 +1573,28 @@ class ProcessBuilder {
         type === Type.Fabric ||
         type === Type.Library
       ) {
-        libs[mdl.getVersionlessMavenIdentifier()] = mdl.getPath();
+        const mavenComponents = mdl.getMavenComponents();
+        const isNeoForgeHosted =
+          type === Type.ForgeHosted &&
+          mavenComponents.group === "net.neoforged" &&
+          mavenComponents.artifact === "neoforge";
+        const hasUniversalRuntime = mdl.subModules.some((subModule) => {
+          if (subModule.rawModule.type !== Type.Library) {
+            return false;
+          }
+
+          const subComponents = subModule.getMavenComponents();
+          return (
+            subComponents.group === "net.neoforged" &&
+            subComponents.artifact === "neoforge" &&
+            subComponents.classifier === "universal"
+          );
+        });
+
+        if (!isNeoForgeHosted || !hasUniversalRuntime) {
+          libs[mdl.getVersionlessMavenIdentifier()] = mdl.getPath();
+        }
+
         if (mdl.subModules.length > 0) {
           const res = this._resolveModuleLibraries(mdl);
           libs = { ...libs, ...res };

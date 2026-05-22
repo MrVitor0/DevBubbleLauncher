@@ -12,6 +12,8 @@ const { DistroAPI } = require("./assets/js/distromanager");
 
 let rscShouldLoad = false;
 let fatalStartupError = false;
+let mainUIInitializing = false;
+let mainUIInitialized = false;
 
 // Mapping of each view to their container IDs.
 const VIEWS = {
@@ -93,7 +95,9 @@ async function showMainUI(data) {
     );
   }
 
-  await prepareSettings(true);
+  prepareSettings(true).catch((err) => {
+    console.error("Unable to prepare settings during startup.", err);
+  });
   updateSelectedAccount(
     devOfflineAccount ?? ConfigManager.getSelectedAccount(),
   );
@@ -143,6 +147,48 @@ async function showMainUI(data) {
   initNews().then(() => {
     $("#newsContainer *").attr("tabindex", "-1");
   });
+}
+
+function isDocumentReady() {
+  return (
+    document.readyState === "interactive" || document.readyState === "complete"
+  );
+}
+
+async function initializeMainUI(data = null) {
+  if (!isDocumentReady() || mainUIInitialized || mainUIInitializing) {
+    return;
+  }
+
+  mainUIInitializing = true;
+
+  try {
+    const distroData = data ?? (await DistroAPI.getDistribution());
+
+    if (distroData == null) {
+      throw new Error("Distribution index unavailable.");
+    }
+
+    syncModConfigurations(distroData);
+    ensureJavaSettings(distroData);
+
+    if (
+      ConfigManager.getSelectedServer() == null ||
+      distroData.getServerById(ConfigManager.getSelectedServer()) == null
+    ) {
+      ConfigManager.setSelectedServer(distroData.getMainServer().rawServer.id);
+      ConfigManager.save();
+    }
+
+    mainUIInitialized = true;
+    await showMainUI(distroData);
+  } catch (err) {
+    console.error("Unable to initialize main UI.", err);
+    fatalStartupError = true;
+    showFatalStartupError();
+  } finally {
+    mainUIInitializing = false;
+  }
 }
 
 function showFatalStartupError() {
@@ -492,18 +538,11 @@ function setSelectedAccount(uuid) {
 document.addEventListener(
   "readystatechange",
   async () => {
-    if (
-      document.readyState === "interactive" ||
-      document.readyState === "complete"
-    ) {
-      if (rscShouldLoad) {
-        rscShouldLoad = false;
-        if (!fatalStartupError) {
-          const data = await DistroAPI.getDistribution();
-          await showMainUI(data);
-        } else {
-          showFatalStartupError();
-        }
+    if (isDocumentReady()) {
+      if (fatalStartupError) {
+        showFatalStartupError();
+      } else {
+        await initializeMainUI();
       }
     }
   },
@@ -514,22 +553,14 @@ document.addEventListener(
 ipcRenderer.on("distributionIndexDone", async (event, res) => {
   if (res) {
     const data = await DistroAPI.getDistribution();
-    syncModConfigurations(data);
-    ensureJavaSettings(data);
-    if (
-      document.readyState === "interactive" ||
-      document.readyState === "complete"
-    ) {
-      await showMainUI(data);
+    if (isDocumentReady()) {
+      await initializeMainUI(data);
     } else {
       rscShouldLoad = true;
     }
   } else {
     fatalStartupError = true;
-    if (
-      document.readyState === "interactive" ||
-      document.readyState === "complete"
-    ) {
+    if (isDocumentReady()) {
       showFatalStartupError();
     } else {
       rscShouldLoad = true;

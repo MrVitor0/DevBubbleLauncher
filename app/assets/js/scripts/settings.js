@@ -1508,14 +1508,27 @@ function populateMemoryStatus() {
  * @param {string} execPath The executable path to populate against.
  */
 async function populateJavaExecDetails(execPath) {
+  if (execPath == null || execPath === "" || execPath === "null") {
+    settingsJavaExecDetails.innerHTML = Lang.queryJS(
+      "settings.java.invalidSelection",
+    );
+    return;
+  }
+
   const server = (await DistroAPI.getDistribution()).getServerById(
     ConfigManager.getSelectedServer(),
   );
 
-  const details = await validateSelectedJvm(
-    ensureJavaDirIsRoot(execPath),
-    server.effectiveJavaOptions.supported,
-  );
+  let details = null;
+
+  try {
+    details = await validateSelectedJvm(
+      ensureJavaDirIsRoot(execPath),
+      server.effectiveJavaOptions.supported,
+    );
+  } catch (_err) {
+    details = null;
+  }
 
   if (details != null) {
     settingsJavaExecDetails.innerHTML = Lang.queryJS(

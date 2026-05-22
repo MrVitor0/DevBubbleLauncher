@@ -12,7 +12,11 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "postinstall": "node build/patch-helios-core-neoforge.js",
+    "patch:neoforge-loader": "node build/patch-helios-core-neoforge.js",
     "start": "electron .",
+    "distribution:neoforge": "node build/enrich-neoforge-distribution.js",
+    "distribution:metadata": "node build/generate-distribution-metadata.js",
     "dist": "electron-builder build",
     "dist:win": "npm run dist -- -w",
     "dist:mac": "npm run dist -- -m",

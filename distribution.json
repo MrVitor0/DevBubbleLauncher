@@ -1,0 +1,3133 @@
+{
+  "version": "1.0.0",
+  "discord": {
+    "clientId": "385581240906022916",
+    "smallImageText": "Bolha Realm",
+    "smallImageKey": "bolha-realm"
+  },
+  "java": {
+    "oracle": "https://adoptium.net/temurin/releases/?version=21"
+  },
+  "rss": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/news.rss",
+  "servers": [
+    {
+      "id": "BolhaRealm-1.21.1",
+      "name": "Bolha Realm",
+      "description": "Cliente principal do Bolha Realm em Minecraft 1.21.1 com NeoForge e mods hospedados no R2.",
+      "icon": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/logo.png",
+      "version": "1.0.0",
+      "address": "play.bolharealm.com",
+      "minecraftVersion": "1.21.1",
+      "discord": {
+        "shortId": "Bolha Realm",
+        "largeImageText": "Bolha Realm 1.21.1",
+        "largeImageKey": "bolha-realm"
+      },
+      "mainServer": true,
+      "autoconnect": true,
+      "javaOptions": {
+        "supported": ">=21 <22",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 6144,
+          "minimum": 4096
+        }
+      },
+      "modules": [
+        {
+          "id": "net.neoforged:neoforge:21.1.230",
+          "name": "NeoForge 21.1.230",
+          "type": "ForgeHosted",
+          "artifact": {
+            "size": 6961947,
+            "MD5": "0145a248097e28e1bf8dea4cce34e03b",
+            "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.230/neoforge-21.1.230-installer.jar"
+          },
+          "subModules": [
+            {
+              "id": "net.neoforged:neoforge:21.1.230:client",
+              "name": "net.neoforged:neoforge:21.1.230:client",
+              "type": "Library",
+              "artifact": {
+                "size": 5670877,
+                "MD5": "19e87d1e55ef623fa48d0659ed409b89",
+                "path": "net/neoforged/neoforge/21.1.230/neoforge-21.1.230-client.jar",
+                "url": "http://localhost:3200/assets/neoforge/neoforge-21.1.230-client.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "net.minecraft:client:1.21.1-20240808.144430:srg",
+              "name": "net.minecraft:client:1.21.1-20240808.144430:srg",
+              "type": "Library",
+              "artifact": {
+                "size": 18725656,
+                "MD5": "24d790d385dff0146020f1875b969e52",
+                "path": "net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar",
+                "url": "http://localhost:3200/assets/neoforge/client-1.21.1-20240808.144430-srg.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "net.minecraft:client:1.21.1-20240808.144430:extra",
+              "name": "net.minecraft:client:1.21.1-20240808.144430:extra",
+              "type": "Library",
+              "artifact": {
+                "size": 12372293,
+                "MD5": "973b9700852b66bb7b74df75b0113db2",
+                "path": "net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar",
+                "url": "http://localhost:3200/assets/neoforge/client-1.21.1-20240808.144430-extra.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "net.neoforged:neoforge:21.1.230:universal",
+              "name": "net.neoforged:neoforge:21.1.230:universal",
+              "type": "Library",
+              "artifact": {
+                "size": 3531237,
+                "MD5": "66e4178a6b8b7c8a1cee7bdbb8294f3c",
+                "path": "net/neoforged/neoforge/21.1.230/neoforge-21.1.230-universal.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.230/neoforge-21.1.230-universal.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "net.neoforged.fancymodloader:earlydisplay:4.0.42",
+              "name": "net.neoforged.fancymodloader:earlydisplay:4.0.42",
+              "type": "Library",
+              "artifact": {
+                "size": 261718,
+                "MD5": "6df1105e4016ee9992ca93cd0103e218",
+                "path": "net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar"
+              }
+            },
+            {
+              "id": "net.neoforged.fancymodloader:loader:4.0.42",
+              "name": "net.neoforged.fancymodloader:loader:4.0.42",
+              "type": "Library",
+              "artifact": {
+                "size": 504899,
+                "MD5": "1722666ba373811ef9b7022c0c4a5a73",
+                "path": "net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar"
+              }
+            },
+            {
+              "id": "net.neoforged.accesstransformers:at-modlauncher:10.0.1",
+              "name": "net.neoforged.accesstransformers:at-modlauncher:10.0.1",
+              "type": "Library",
+              "artifact": {
+                "size": 2347,
+                "MD5": "f65434f122b97b1ac8fe56ff54873b5f",
+                "path": "net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:accesstransformers:10.0.1",
+              "name": "net.neoforged:accesstransformers:10.0.1",
+              "type": "Library",
+              "artifact": {
+                "size": 67234,
+                "MD5": "3a01a09a2b0900381dce48e118882849",
+                "path": "net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:bus:8.0.5",
+              "name": "net.neoforged:bus:8.0.5",
+              "type": "Library",
+              "artifact": {
+                "size": 30340,
+                "MD5": "95eee080d9de7cb764adcb8fa2ecf3fb",
+                "path": "net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:coremods:7.0.3",
+              "name": "net.neoforged:coremods:7.0.3",
+              "type": "Library",
+              "artifact": {
+                "size": 22659,
+                "MD5": "4527abf6b7116dae1c2178f7beab0ba2",
+                "path": "net/neoforged/coremods/7.0.3/coremods-7.0.3.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar"
+              }
+            },
+            {
+              "id": "cpw.mods:modlauncher:11.0.5",
+              "name": "cpw.mods:modlauncher:11.0.5",
+              "type": "Library",
+              "artifact": {
+                "size": 116486,
+                "MD5": "70fa994f64b2620d20dc325bab758d1b",
+                "path": "cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar",
+                "url": "https://maven.neoforged.net/releases/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:mergetool:2.0.0:api",
+              "name": "net.neoforged:mergetool:2.0.0:api",
+              "type": "Library",
+              "artifact": {
+                "size": 2550,
+                "MD5": "818b398f65b8dc5af802b721fd1d0b56",
+                "path": "net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar"
+              }
+            },
+            {
+              "id": "com.electronwill.night-config:toml:3.8.3",
+              "name": "com.electronwill.night-config:toml:3.8.3",
+              "type": "Library",
+              "artifact": {
+                "size": 39516,
+                "MD5": "71c9f7b86422f206c0d78c1a0600fd3a",
+                "path": "com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar",
+                "url": "https://maven.neoforged.net/releases/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar"
+              }
+            },
+            {
+              "id": "com.electronwill.night-config:core:3.8.3",
+              "name": "com.electronwill.night-config:core:3.8.3",
+              "type": "Library",
+              "artifact": {
+                "size": 382911,
+                "MD5": "a69db71d5c9c274ff08f175d7c12cb1a",
+                "path": "com/electronwill/night-config/core/3.8.3/core-3.8.3.jar",
+                "url": "https://maven.neoforged.net/releases/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:JarJarSelector:0.4.1",
+              "name": "net.neoforged:JarJarSelector:0.4.1",
+              "type": "Library",
+              "artifact": {
+                "size": 17168,
+                "MD5": "20d1fe8972655189f69845554ee1a4d1",
+                "path": "net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:JarJarMetadata:0.4.1",
+              "name": "net.neoforged:JarJarMetadata:0.4.1",
+              "type": "Library",
+              "artifact": {
+                "size": 15648,
+                "MD5": "c2f30969dd8b1dc8e3f78c731bd2c5c8",
+                "path": "net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar"
+              }
+            },
+            {
+              "id": "org.apache.maven:maven-artifact:3.8.5",
+              "name": "org.apache.maven:maven-artifact:3.8.5",
+              "type": "Library",
+              "artifact": {
+                "size": 58077,
+                "MD5": "ce473b0d9fbfd10fe147f03fe8707d67",
+                "path": "org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar",
+                "url": "https://maven.neoforged.net/releases/org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar"
+              }
+            },
+            {
+              "id": "net.jodah:typetools:0.6.3",
+              "name": "net.jodah:typetools:0.6.3",
+              "type": "Library",
+              "artifact": {
+                "size": 18281,
+                "MD5": "d4a375bf382f726cf1a650ccb38a736c",
+                "path": "net/jodah/typetools/0.6.3/typetools-0.6.3.jar",
+                "url": "https://maven.neoforged.net/releases/net/jodah/typetools/0.6.3/typetools-0.6.3.jar"
+              }
+            },
+            {
+              "id": "net.minecrell:terminalconsoleappender:1.3.0",
+              "name": "net.minecrell:terminalconsoleappender:1.3.0",
+              "type": "Library",
+              "artifact": {
+                "size": 16949,
+                "MD5": "179d3abaf9736dbd8fbd4fa98e1c6ea1",
+                "path": "net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar",
+                "url": "https://maven.neoforged.net/releases/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar"
+              }
+            },
+            {
+              "id": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+              "name": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+              "type": "Library",
+              "artifact": {
+                "size": 1494751,
+                "MD5": "4808c070bf19415a5cb4a0cb5e569b12",
+                "path": "net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar",
+                "url": "https://maven.neoforged.net/releases/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar"
+              }
+            },
+            {
+              "id": "org.openjdk.nashorn:nashorn-core:15.4",
+              "name": "org.openjdk.nashorn:nashorn-core:15.4",
+              "type": "Library",
+              "artifact": {
+                "size": 2167292,
+                "MD5": "a9b3360e6a486cf62c1952c7816b7d97",
+                "path": "org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar",
+                "url": "https://maven.neoforged.net/releases/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar"
+              }
+            },
+            {
+              "id": "org.apache.commons:commons-lang3:3.14.0",
+              "name": "org.apache.commons:commons-lang3:3.14.0",
+              "type": "Library",
+              "artifact": {
+                "size": 657952,
+                "MD5": "4e5c3f5e6b0b965ef241d7d72ac8971f",
+                "path": "org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar",
+                "url": "https://libraries.minecraft.net/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar"
+              }
+            },
+            {
+              "id": "cpw.mods:bootstraplauncher:2.0.2",
+              "name": "cpw.mods:bootstraplauncher:2.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 11116,
+                "MD5": "169bd8c006e69d83267466e311d4049d",
+                "path": "cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar",
+                "url": "https://maven.neoforged.net/releases/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "cpw.mods:securejarhandler:3.0.8",
+              "name": "cpw.mods:securejarhandler:3.0.8",
+              "type": "Library",
+              "artifact": {
+                "size": 103765,
+                "MD5": "eb0d5290a2681c2dbeb8088b82e0fbf9",
+                "path": "cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar",
+                "url": "https://maven.neoforged.net/releases/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "org.ow2.asm:asm-commons:9.8",
+              "name": "org.ow2.asm:asm-commons:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 73498,
+                "MD5": "c8c3d9ccf240144e74d94ff658b024c9",
+                "path": "org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "org.ow2.asm:asm-util:9.8",
+              "name": "org.ow2.asm:asm-util:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 94559,
+                "MD5": "62498ef324bdab15f407d703f7d78d19",
+                "path": "org/ow2/asm/asm-util/9.8/asm-util-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "org.ow2.asm:asm-analysis:9.8",
+              "name": "org.ow2.asm:asm-analysis:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 35151,
+                "MD5": "3d63508405f5610fc2ea673ff5471553",
+                "path": "org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "org.ow2.asm:asm-tree:9.8",
+              "name": "org.ow2.asm:asm-tree:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 51934,
+                "MD5": "4ab1aaec43c77a2d9b56e6d6d496f705",
+                "path": "org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "org.ow2.asm:asm:9.8",
+              "name": "org.ow2.asm:asm:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 126113,
+                "MD5": "f5adf3bfc54fb3d2cd8e3a1f275084bc",
+                "path": "org/ow2/asm/asm/9.8/asm-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm/9.8/asm-9.8.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "net.neoforged:JarJarFileSystems:0.4.1",
+              "name": "net.neoforged:JarJarFileSystems:0.4.1",
+              "type": "Library",
+              "artifact": {
+                "size": 31807,
+                "MD5": "8d75021e5aeb04652b4b9ae3df500b9e",
+                "path": "net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar"
+              },
+              "classpath": false
+            },
+            {
+              "id": "net.sf.jopt-simple:jopt-simple:5.0.4",
+              "name": "net.sf.jopt-simple:jopt-simple:5.0.4",
+              "type": "Library",
+              "artifact": {
+                "size": 78146,
+                "MD5": "eb0d9dffe9b0eddead68fe678be76c49",
+                "path": "net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+                "url": "https://libraries.minecraft.net/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar"
+              }
+            },
+            {
+              "id": "org.slf4j:slf4j-api:2.0.9",
+              "name": "org.slf4j:slf4j-api:2.0.9",
+              "type": "Library",
+              "artifact": {
+                "size": 64579,
+                "MD5": "45630e54b0f0ac2b3c80462515ad8fda",
+                "path": "org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+                "url": "https://libraries.minecraft.net/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar"
+              }
+            },
+            {
+              "id": "org.antlr:antlr4-runtime:4.13.1",
+              "name": "org.antlr:antlr4-runtime:4.13.1",
+              "type": "Library",
+              "artifact": {
+                "size": 326305,
+                "MD5": "dd465ddb2a8dbf69eb6c94e69a0d5f0f",
+                "path": "org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar",
+                "url": "https://maven.neoforged.net/releases/org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar"
+              }
+            },
+            {
+              "id": "com.mojang:logging:1.2.7",
+              "name": "com.mojang:logging:1.2.7",
+              "type": "Library",
+              "artifact": {
+                "size": 15343,
+                "MD5": "d01ea99740509a58222a426cc36f5456",
+                "path": "com/mojang/logging/1.2.7/logging-1.2.7.jar",
+                "url": "https://libraries.minecraft.net/com/mojang/logging/1.2.7/logging-1.2.7.jar"
+              }
+            },
+            {
+              "id": "org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1",
+              "name": "org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1",
+              "type": "Library",
+              "artifact": {
+                "size": 27364,
+                "MD5": "82cc94f378ffb853efe084ee9bf4c463",
+                "path": "org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar",
+                "url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar"
+              }
+            },
+            {
+              "id": "org.apache.logging.log4j:log4j-core:2.22.1",
+              "name": "org.apache.logging.log4j:log4j-core:2.22.1",
+              "type": "Library",
+              "artifact": {
+                "size": 1900022,
+                "MD5": "b5987ee449d4be4244e2e214683c45af",
+                "path": "org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar",
+                "url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar"
+              }
+            },
+            {
+              "id": "org.apache.logging.log4j:log4j-api:2.22.1",
+              "name": "org.apache.logging.log4j:log4j-api:2.22.1",
+              "type": "Library",
+              "artifact": {
+                "size": 335001,
+                "MD5": "27db0eb89ae965179480df00d8d1cf03",
+                "path": "org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar",
+                "url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar"
+              }
+            },
+            {
+              "id": "org.jline:jline-reader:3.20.0",
+              "name": "org.jline:jline-reader:3.20.0",
+              "type": "Library",
+              "artifact": {
+                "size": 171052,
+                "MD5": "9ece57ca56a1688d1d09fe2c48e7a292",
+                "path": "org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar",
+                "url": "https://maven.neoforged.net/releases/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar"
+              }
+            },
+            {
+              "id": "org.jline:jline-terminal:3.20.0",
+              "name": "org.jline:jline-terminal:3.20.0",
+              "type": "Library",
+              "artifact": {
+                "size": 228481,
+                "MD5": "e45dace437743e6b5e75c81eb455fd3e",
+                "path": "org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar",
+                "url": "https://maven.neoforged.net/releases/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar"
+              }
+            },
+            {
+              "id": "commons-io:commons-io:2.15.1",
+              "name": "commons-io:commons-io:2.15.1",
+              "type": "Library",
+              "artifact": {
+                "size": 501218,
+                "MD5": "84351f7991a0e6722f00e96a4ccc376f",
+                "path": "commons-io/commons-io/2.15.1/commons-io-2.15.1.jar",
+                "url": "https://libraries.minecraft.net/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar"
+              }
+            },
+            {
+              "id": "net.minecraftforge:srgutils:0.4.15",
+              "name": "net.minecraftforge:srgutils:0.4.15",
+              "type": "Library",
+              "artifact": {
+                "size": 69393,
+                "MD5": "79812fd073afe1c046bc1ea46ad28095",
+                "path": "net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar",
+                "url": "https://maven.neoforged.net/releases/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar"
+              }
+            },
+            {
+              "id": "com.google.guava:guava:32.1.2-jre",
+              "name": "com.google.guava:guava:32.1.2-jre",
+              "type": "Library",
+              "artifact": {
+                "size": 3041591,
+                "MD5": "5fe031b3b35ed56182478811a931d617",
+                "path": "com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+                "url": "https://libraries.minecraft.net/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar"
+              }
+            },
+            {
+              "id": "com.google.guava:failureaccess:1.0.1",
+              "name": "com.google.guava:failureaccess:1.0.1",
+              "type": "Library",
+              "artifact": {
+                "size": 4617,
+                "MD5": "091883993ef5bfa91da01dcc8fc52236",
+                "path": "com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+                "url": "https://libraries.minecraft.net/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+              }
+            },
+            {
+              "id": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+              "name": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+              "type": "Library",
+              "artifact": {
+                "size": 2199,
+                "MD5": "d094c22570d65e132c19cea5d352e381",
+                "path": "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+                "url": "https://libraries.minecraft.net/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+              }
+            },
+            {
+              "id": "com.google.code.findbugs:jsr305:3.0.2",
+              "name": "com.google.code.findbugs:jsr305:3.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 19936,
+                "MD5": "dd83accb899363c32b07d7a1b2e4ce40",
+                "path": "com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+                "url": "https://libraries.minecraft.net/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+              }
+            },
+            {
+              "id": "org.checkerframework:checker-qual:3.33.0",
+              "name": "org.checkerframework:checker-qual:3.33.0",
+              "type": "Library",
+              "artifact": {
+                "size": 223979,
+                "MD5": "fc9418b779d9d57dcd52197006cbdb9b",
+                "path": "org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar",
+                "url": "https://libraries.minecraft.net/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar"
+              }
+            },
+            {
+              "id": "com.google.errorprone:error_prone_annotations:2.18.0",
+              "name": "com.google.errorprone:error_prone_annotations:2.18.0",
+              "type": "Library",
+              "artifact": {
+                "size": 16017,
+                "MD5": "64145d0e7fee5a69ed7b84cf402de998",
+                "path": "com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar",
+                "url": "https://libraries.minecraft.net/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar"
+              }
+            },
+            {
+              "id": "com.google.j2objc:j2objc-annotations:2.8",
+              "name": "com.google.j2objc:j2objc-annotations:2.8",
+              "type": "Library",
+              "artifact": {
+                "size": 9301,
+                "MD5": "c50af69b704dc91050efb98e0dff66d1",
+                "path": "com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar",
+                "url": "https://libraries.minecraft.net/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar"
+              }
+            },
+            {
+              "id": "com.google.code.gson:gson:2.10.1",
+              "name": "com.google.code.gson:gson:2.10.1",
+              "type": "Library",
+              "artifact": {
+                "size": 283367,
+                "MD5": "df6097815738cb31fc56391553210843",
+                "path": "com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+                "url": "https://libraries.minecraft.net/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar"
+              }
+            },
+            {
+              "id": "org.codehaus.plexus:plexus-utils:3.3.0",
+              "name": "org.codehaus.plexus:plexus-utils:3.3.0",
+              "type": "Library",
+              "artifact": {
+                "size": 263253,
+                "MD5": "3ae76ff0195ada460d495efe1fb50d17",
+                "path": "org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar",
+                "url": "https://maven.neoforged.net/releases/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar"
+              }
+            },
+            {
+              "id": "com.machinezoo.noexception:noexception:1.7.1",
+              "name": "com.machinezoo.noexception:noexception:1.7.1",
+              "type": "Library",
+              "artifact": {
+                "size": 250861,
+                "MD5": "fcc3e4df4990088c964f687b62f7c448",
+                "path": "com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar",
+                "url": "https://maven.neoforged.net/releases/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar"
+              }
+            }
+          ]
+        },
+        {
+          "id": "AI-Improvements-1.21-0.5.3.jar",
+          "name": "AI-Improvements-1.21-0.5.3",
+          "type": "File",
+          "artifact": {
+            "size": 28984,
+            "MD5": "fd80ae9f154ac230e60fb138f9b5453f",
+            "path": "mods/AI-Improvements-1.21-0.5.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/AI-Improvements-1.21-0.5.3.jar"
+          }
+        },
+        {
+          "id": "AetherVillages-1.21.1-1.0.8-neoforge.jar",
+          "name": "AetherVillages-1.21.1-1.0.8-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 647447,
+            "MD5": "96aca81787bd80bd4d58d70384a2dd4d",
+            "path": "mods/AetherVillages-1.21.1-1.0.8-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/AetherVillages-1.21.1-1.0.8-neoforge.jar"
+          }
+        },
+        {
+          "id": "Aethersteel-v5.6-1.21.1.jar",
+          "name": "Aethersteel-v5.6-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1969864,
+            "MD5": "d81e47938565258cdfe7b497f678e600",
+            "path": "mods/Aethersteel-v5.6-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Aethersteel-v5.6-1.21.1.jar"
+          }
+        },
+        {
+          "id": "Applied-Mekanistics-1.6.3.jar",
+          "name": "Applied-Mekanistics-1.6.3",
+          "type": "File",
+          "artifact": {
+            "size": 149709,
+            "MD5": "0ef21d62aaa1e318f2f93adabe6c56a2",
+            "path": "mods/Applied-Mekanistics-1.6.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Applied-Mekanistics-1.6.3.jar"
+          }
+        },
+        {
+          "id": "ArPhEx-5.0.2-neoforge-1.21.1.jar",
+          "name": "ArPhEx-5.0.2-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 13685315,
+            "MD5": "bd7741770c79c82c12a40ab0d54a7433",
+            "path": "mods/ArPhEx-5.0.2-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ArPhEx-5.0.2-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "AxesAreWeapons-1.10.2-neoforge-1.21.jar",
+          "name": "AxesAreWeapons-1.10.2-neoforge-1.21",
+          "type": "File",
+          "artifact": {
+            "size": 36026,
+            "MD5": "5ade5890dd814b279c072b89ab2bd9a7",
+            "path": "mods/AxesAreWeapons-1.10.2-neoforge-1.21.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/AxesAreWeapons-1.10.2-neoforge-1.21.jar"
+          }
+        },
+        {
+          "id": "BOMD-NeoForge-1.21-1.3.2.jar",
+          "name": "BOMD-NeoForge-1.21-1.3.2",
+          "type": "File",
+          "artifact": {
+            "size": 1951866,
+            "MD5": "9ab6428427d2db1f27fba0feaf7a884d",
+            "path": "mods/BOMD-NeoForge-1.21-1.3.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/BOMD-NeoForge-1.21-1.3.2.jar"
+          }
+        },
+        {
+          "id": "BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar",
+          "name": "BetterAdvancements-NeoForge-1.21.1-0.4.3.21",
+          "type": "File",
+          "artifact": {
+            "size": 98641,
+            "MD5": "a18430f1f7ecf6dd1849a8f240f509af",
+            "path": "mods/BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/BetterAdvancements-NeoForge-1.21.1-0.4.3.21.jar"
+          }
+        },
+        {
+          "id": "BetterFusionReactor-1.21.1-1.5.9rc1.jar",
+          "name": "BetterFusionReactor-1.21.1-1.5.9rc1",
+          "type": "File",
+          "artifact": {
+            "size": 346698,
+            "MD5": "862e3d618c97e55558840ba5ddbb6049",
+            "path": "mods/BetterFusionReactor-1.21.1-1.5.9rc1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/BetterFusionReactor-1.21.1-1.5.9rc1.jar"
+          }
+        },
+        {
+          "id": "BiomesOPlenty-neoforge-1.21.1-21.1.0.13.jar",
+          "name": "BiomesOPlenty-neoforge-1.21.1-21.1.0.13",
+          "type": "File",
+          "artifact": {
+            "size": 22338081,
+            "MD5": "5fffd607544c0c158957a5df7a510bd8",
+            "path": "mods/BiomesOPlenty-neoforge-1.21.1-21.1.0.13.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/BiomesOPlenty-neoforge-1.21.1-21.1.0.13.jar"
+          }
+        },
+        {
+          "id": "Boss Music Mod 1.21.x v1.2.1.jar",
+          "name": "Boss Music Mod 1.21.x v1.2.1",
+          "type": "File",
+          "artifact": {
+            "size": 9019104,
+            "MD5": "20fd1c6825738231001806b8697f0e0c",
+            "path": "mods/Boss Music Mod 1.21.x v1.2.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Boss%20Music%20Mod%201.21.x%20v1.2.1.jar"
+          }
+        },
+        {
+          "id": "CerbonsAPI-NeoForge-1.21-1.3.0.jar",
+          "name": "CerbonsAPI-NeoForge-1.21-1.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 250545,
+            "MD5": "1674314a881b122dd228fee332b8f8d2",
+            "path": "mods/CerbonsAPI-NeoForge-1.21-1.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CerbonsAPI-NeoForge-1.21-1.3.0.jar"
+          }
+        },
+        {
+          "id": "CobbleDollars-neoforge-2.0.0+Beta-5.1+1.21.1.jar",
+          "name": "CobbleDollars-neoforge-2.0.0+Beta-5.1+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 373240,
+            "MD5": "d53276b8fe018b6f0fa90ac9ffd75dfd",
+            "path": "mods/CobbleDollars-neoforge-2.0.0+Beta-5.1+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CobbleDollars-neoforge-2.0.0%2BBeta-5.1%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "CobbleFurnies-neoforge-1.1.jar",
+          "name": "CobbleFurnies-neoforge-1.1",
+          "type": "File",
+          "artifact": {
+            "size": 2343208,
+            "MD5": "94098ca5ba54ae298b72ebb5599b5f51",
+            "path": "mods/CobbleFurnies-neoforge-1.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CobbleFurnies-neoforge-1.1.jar"
+          }
+        },
+        {
+          "id": "Cobblemon-neoforge-1.7.3+1.21.1.jar",
+          "name": "Cobblemon-neoforge-1.7.3+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 128748941,
+            "MD5": "333703799b03266819f95e41130d9b7e",
+            "path": "mods/Cobblemon-neoforge-1.7.3+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Cobblemon-neoforge-1.7.3%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "CobblemonMoveInspector-neoforge-1.3.0.jar",
+          "name": "CobblemonMoveInspector-neoforge-1.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 26970,
+            "MD5": "85dc06386f827c1387a85cb04cb9c0ae",
+            "path": "mods/CobblemonMoveInspector-neoforge-1.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CobblemonMoveInspector-neoforge-1.3.0.jar"
+          }
+        },
+        {
+          "id": "Cobblepedia-NeoForge-0.7.1.jar",
+          "name": "Cobblepedia-NeoForge-0.7.1",
+          "type": "File",
+          "artifact": {
+            "size": 8276599,
+            "MD5": "b6035dc2865c2dcc7ecfc86c71fa2ecd",
+            "path": "mods/Cobblepedia-NeoForge-0.7.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Cobblepedia-NeoForge-0.7.1.jar"
+          }
+        },
+        {
+          "id": "ColdSweat-2.4.jar",
+          "name": "ColdSweat-2.4",
+          "type": "File",
+          "artifact": {
+            "size": 2588919,
+            "MD5": "17fb84dbb63505e30055c4c4f9c6d8cc",
+            "path": "mods/ColdSweat-2.4.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ColdSweat-2.4.jar"
+          }
+        },
+        {
+          "id": "Controlling-neoforge-1.21.1-19.0.5.jar",
+          "name": "Controlling-neoforge-1.21.1-19.0.5",
+          "type": "File",
+          "artifact": {
+            "size": 77555,
+            "MD5": "7141c2d0bb774dc6e4481be32b685179",
+            "path": "mods/Controlling-neoforge-1.21.1-19.0.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Controlling-neoforge-1.21.1-19.0.5.jar"
+          }
+        },
+        {
+          "id": "CreateAeronauticsCopycatWing-1.21.1-1.0.1.jar",
+          "name": "CreateAeronauticsCopycatWing-1.21.1-1.0.1",
+          "type": "File",
+          "artifact": {
+            "size": 96916,
+            "MD5": "cb72af9db54c73cff6508f52f74bb176",
+            "path": "mods/CreateAeronauticsCopycatWing-1.21.1-1.0.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CreateAeronauticsCopycatWing-1.21.1-1.0.1.jar"
+          }
+        },
+        {
+          "id": "CreateDragonsPlus-1.10.1.jar",
+          "name": "CreateDragonsPlus-1.10.1",
+          "type": "File",
+          "artifact": {
+            "size": 759631,
+            "MD5": "38985e5ce6c958e416045a22141f0585",
+            "path": "mods/CreateDragonsPlus-1.10.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CreateDragonsPlus-1.10.1.jar"
+          }
+        },
+        {
+          "id": "CreateNumismatics-1.0.19integration+neoforge-mc1.21.1.jar",
+          "name": "CreateNumismatics-1.0.19integration+neoforge-mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 729918,
+            "MD5": "f29e5b167c7615fb75678611c95f27e6",
+            "path": "mods/CreateNumismatics-1.0.19integration+neoforge-mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CreateNumismatics-1.0.19integration%2Bneoforge-mc1.21.1.jar"
+          }
+        },
+        {
+          "id": "CreateOPlenty-NeoForge-Create+6.0.7-3.0.jar",
+          "name": "CreateOPlenty-NeoForge-Create+6.0.7-3.0",
+          "type": "File",
+          "artifact": {
+            "size": 45837,
+            "MD5": "f6cdcd99da07652b27bfc858a2393b88",
+            "path": "mods/CreateOPlenty-NeoForge-Create+6.0.7-3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/CreateOPlenty-NeoForge-Create%2B6.0.7-3.0.jar"
+          }
+        },
+        {
+          "id": "DnDesires-1.21.1-2.3a-BETA.jar",
+          "name": "DnDesires-1.21.1-2.3a-BETA",
+          "type": "File",
+          "artifact": {
+            "size": 1249099,
+            "MD5": "8ad0a211d478de56b9df1d19c348e723",
+            "path": "mods/DnDesires-1.21.1-2.3a-BETA.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/DnDesires-1.21.1-2.3a-BETA.jar"
+          }
+        },
+        {
+          "id": "EW-NeoForge-1.21.1-1.0.0.jar",
+          "name": "EW-NeoForge-1.21.1-1.0.0",
+          "type": "File",
+          "artifact": {
+            "size": 425681,
+            "MD5": "fd50626c81dfe35630d7d95f82424fd2",
+            "path": "mods/EW-NeoForge-1.21.1-1.0.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/EW-NeoForge-1.21.1-1.0.0.jar"
+          }
+        },
+        {
+          "id": "Evolved Mekanism-1.21.1-1.2.1-fix3.jar",
+          "name": "Evolved Mekanism-1.21.1-1.2.1-fix3",
+          "type": "File",
+          "artifact": {
+            "size": 2676340,
+            "MD5": "67267aed9fb55debbf1d3249d71524f5",
+            "path": "mods/Evolved Mekanism-1.21.1-1.2.1-fix3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Evolved%20Mekanism-1.21.1-1.2.1-fix3.jar"
+          }
+        },
+        {
+          "id": "ExtremeReactors2-1.21.1-2.4.28.jar",
+          "name": "ExtremeReactors2-1.21.1-2.4.28",
+          "type": "File",
+          "artifact": {
+            "size": 2554779,
+            "MD5": "598008e487f6dae196a4d3c538d6333a",
+            "path": "mods/ExtremeReactors2-1.21.1-2.4.28.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ExtremeReactors2-1.21.1-2.4.28.jar"
+          }
+        },
+        {
+          "id": "ExtremeReactors2-CreateCompat-1.21.1-1.0.4.jar",
+          "name": "ExtremeReactors2-CreateCompat-1.21.1-1.0.4",
+          "type": "File",
+          "artifact": {
+            "size": 119634,
+            "MD5": "8d7810d5ce64383f9a68c74bbb04912d",
+            "path": "mods/ExtremeReactors2-CreateCompat-1.21.1-1.0.4.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ExtremeReactors2-CreateCompat-1.21.1-1.0.4.jar"
+          }
+        },
+        {
+          "id": "Failskins 9.0.jar",
+          "name": "Failskins 9.0",
+          "type": "File",
+          "artifact": {
+            "size": 21204975,
+            "MD5": "37cb3f4eb96b4de2276490ccf144edb1",
+            "path": "mods/Failskins 9.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Failskins%209.0.jar"
+          }
+        },
+        {
+          "id": "FallingTree-1.21.1-1.21.1.11.jar",
+          "name": "FallingTree-1.21.1-1.21.1.11",
+          "type": "File",
+          "artifact": {
+            "size": 496356,
+            "MD5": "7318bdea54e4c69c1c90650b30fc4bde",
+            "path": "mods/FallingTree-1.21.1-1.21.1.11.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/FallingTree-1.21.1-1.21.1.11.jar"
+          }
+        },
+        {
+          "id": "FarmersDelight-1.21.1-1.3.2.jar",
+          "name": "FarmersDelight-1.21.1-1.3.2",
+          "type": "File",
+          "artifact": {
+            "size": 3163042,
+            "MD5": "60186e1b39385ecae70ff2f194ef7c32",
+            "path": "mods/FarmersDelight-1.21.1-1.3.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/FarmersDelight-1.21.1-1.3.2.jar"
+          }
+        },
+        {
+          "id": "GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+          "name": "GlitchCore-neoforge-1.21.1-2.1.0.2",
+          "type": "File",
+          "artifact": {
+            "size": 90717,
+            "MD5": "3bdf763d2461aa2731ed3515e0761d2f",
+            "path": "mods/GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/GlitchCore-neoforge-1.21.1-2.1.0.2.jar"
+          }
+        },
+        {
+          "id": "ImmediatelyFast-NeoForge-1.6.10+1.21.1.jar",
+          "name": "ImmediatelyFast-NeoForge-1.6.10+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 368598,
+            "MD5": "567bb6d9155070ad858740af12450c63",
+            "path": "mods/ImmediatelyFast-NeoForge-1.6.10+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ImmediatelyFast-NeoForge-1.6.10%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar",
+          "name": "InventoryProfilesNext-neoforge-1.21.1-2.2.5",
+          "type": "File",
+          "artifact": {
+            "size": 1295466,
+            "MD5": "0cef57934a1a913a84af75fccedb0995",
+            "path": "mods/InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/InventoryProfilesNext-neoforge-1.21.1-2.2.5.jar"
+          }
+        },
+        {
+          "id": "Jade-1.21.1-NeoForge-15.10.5.jar",
+          "name": "Jade-1.21.1-NeoForge-15.10.5",
+          "type": "File",
+          "artifact": {
+            "size": 725742,
+            "MD5": "80f9186d25b02ebbfa5773416f5da410",
+            "path": "mods/Jade-1.21.1-NeoForge-15.10.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Jade-1.21.1-NeoForge-15.10.5.jar"
+          }
+        },
+        {
+          "id": "JustEnoughMekanismMultiblocks-1.21.1-7.15.jar",
+          "name": "JustEnoughMekanismMultiblocks-1.21.1-7.15",
+          "type": "File",
+          "artifact": {
+            "size": 185493,
+            "MD5": "942f1f93a73be5ec0f7590b477458706",
+            "path": "mods/JustEnoughMekanismMultiblocks-1.21.1-7.15.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/JustEnoughMekanismMultiblocks-1.21.1-7.15.jar"
+          }
+        },
+        {
+          "id": "JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar",
+          "name": "JustEnoughProfessions-neoforge-1.21.1-4.0.5",
+          "type": "File",
+          "artifact": {
+            "size": 24879,
+            "MD5": "68ae6dbb6b7a88cd74c85025dd68cf12",
+            "path": "mods/JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/JustEnoughProfessions-neoforge-1.21.1-4.0.5.jar"
+          }
+        },
+        {
+          "id": "JustEnoughResources-NeoForge-1.21.1-1.6.0.17.jar",
+          "name": "JustEnoughResources-NeoForge-1.21.1-1.6.0.17",
+          "type": "File",
+          "artifact": {
+            "size": 292088,
+            "MD5": "3e18cab0cb7ee834573e6b20dcb5543f",
+            "path": "mods/JustEnoughResources-NeoForge-1.21.1-1.6.0.17.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/JustEnoughResources-NeoForge-1.21.1-1.6.0.17.jar"
+          }
+        },
+        {
+          "id": "KineticGrip-1.21.1-1.0.1.jar",
+          "name": "KineticGrip-1.21.1-1.0.1",
+          "type": "File",
+          "artifact": {
+            "size": 247539,
+            "MD5": "a06cb5f3eff2295b9fc12680c494a273",
+            "path": "mods/KineticGrip-1.21.1-1.0.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/KineticGrip-1.21.1-1.0.1.jar"
+          }
+        },
+        {
+          "id": "Mekanism-1.21.1-10.7.19.85.jar",
+          "name": "Mekanism-1.21.1-10.7.19.85",
+          "type": "File",
+          "artifact": {
+            "size": 11976009,
+            "MD5": "b491d4070087ec34864dc858fd22f90a",
+            "path": "mods/Mekanism-1.21.1-10.7.19.85.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Mekanism-1.21.1-10.7.19.85.jar"
+          }
+        },
+        {
+          "id": "MekanismAdditions-1.21.1-10.7.19.85.jar",
+          "name": "MekanismAdditions-1.21.1-10.7.19.85",
+          "type": "File",
+          "artifact": {
+            "size": 1162551,
+            "MD5": "94cc2df24bfc527e518559ee01f683b8",
+            "path": "mods/MekanismAdditions-1.21.1-10.7.19.85.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/MekanismAdditions-1.21.1-10.7.19.85.jar"
+          }
+        },
+        {
+          "id": "MekanismGenerators-1.21.1-10.7.19.85.jar",
+          "name": "MekanismGenerators-1.21.1-10.7.19.85",
+          "type": "File",
+          "artifact": {
+            "size": 1114598,
+            "MD5": "1ccb5604857497903e330488a3871f0e",
+            "path": "mods/MekanismGenerators-1.21.1-10.7.19.85.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/MekanismGenerators-1.21.1-10.7.19.85.jar"
+          }
+        },
+        {
+          "id": "MekanismWeapons-1.21.1-3.0.jar",
+          "name": "MekanismWeapons-1.21.1-3.0",
+          "type": "File",
+          "artifact": {
+            "size": 118152,
+            "MD5": "7ec9e5148fe5ebbd3c8f05c219225f59",
+            "path": "mods/MekanismWeapons-1.21.1-3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/MekanismWeapons-1.21.1-3.0.jar"
+          }
+        },
+        {
+          "id": "MoreCobblemonTweaks-neoforge-1.3.3.jar",
+          "name": "MoreCobblemonTweaks-neoforge-1.3.3",
+          "type": "File",
+          "artifact": {
+            "size": 138756,
+            "MD5": "747ff42341314605ffb6650222ab52ab",
+            "path": "mods/MoreCobblemonTweaks-neoforge-1.3.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/MoreCobblemonTweaks-neoforge-1.3.3.jar"
+          }
+        },
+        {
+          "id": "MoreMekanismProcessing-1.21.1-6.8.jar",
+          "name": "MoreMekanismProcessing-1.21.1-6.8",
+          "type": "File",
+          "artifact": {
+            "size": 712991,
+            "MD5": "2b227a00583c4e354118f5e1c3b98c41",
+            "path": "mods/MoreMekanismProcessing-1.21.1-6.8.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/MoreMekanismProcessing-1.21.1-6.8.jar"
+          }
+        },
+        {
+          "id": "MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+          "name": "MouseTweaks-neoforge-mc1.21-2.26.1",
+          "type": "File",
+          "artifact": {
+            "size": 73938,
+            "MD5": "4ab6e808a59fdebecfbc92438b85b470",
+            "path": "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar"
+          }
+        },
+        {
+          "id": "MythsAndLegends-neoforge-1.9.0.jar",
+          "name": "MythsAndLegends-neoforge-1.9.0",
+          "type": "File",
+          "artifact": {
+            "size": 3254096,
+            "MD5": "b09765be05a1afb7809dc4f23bf81cf1",
+            "path": "mods/MythsAndLegends-neoforge-1.9.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/MythsAndLegends-neoforge-1.9.0.jar"
+          }
+        },
+        {
+          "id": "NaturesCompass-1.21.1-3.4.0-neoforge.jar",
+          "name": "NaturesCompass-1.21.1-3.4.0-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 224657,
+            "MD5": "1cb785707bea10cfc5018fe37247963c",
+            "path": "mods/NaturesCompass-1.21.1-3.4.0-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/NaturesCompass-1.21.1-3.4.0-neoforge.jar"
+          }
+        },
+        {
+          "id": "Patchouli-1.21.1-93-NEOFORGE.jar",
+          "name": "Patchouli-1.21.1-93-NEOFORGE",
+          "type": "File",
+          "artifact": {
+            "size": 646777,
+            "MD5": "8178d65cd07dd7a646446729058ae2bf",
+            "path": "mods/Patchouli-1.21.1-93-NEOFORGE.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Patchouli-1.21.1-93-NEOFORGE.jar"
+          }
+        },
+        {
+          "id": "Quark-4.1-479.jar",
+          "name": "Quark-4.1-479",
+          "type": "File",
+          "artifact": {
+            "size": 15598989,
+            "MD5": "c9358d38e194d7f74e283768386a0ac0",
+            "path": "mods/Quark-4.1-479.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Quark-4.1-479.jar"
+          }
+        },
+        {
+          "id": "RPG_Style_More_Weapons_R_1.0.3_NeoForge_1.21.1.jar",
+          "name": "RPG_Style_More_Weapons_R_1.0.3_NeoForge_1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1473437,
+            "MD5": "ec0151cdade407b89557381f23447c99",
+            "path": "mods/RPG_Style_More_Weapons_R_1.0.3_NeoForge_1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/RPG_Style_More_Weapons_R_1.0.3_NeoForge_1.21.1.jar"
+          }
+        },
+        {
+          "id": "SOB-NeoForge-1.21.1-1.0.0.jar",
+          "name": "SOB-NeoForge-1.21.1-1.0.0",
+          "type": "File",
+          "artifact": {
+            "size": 553024,
+            "MD5": "ccb5eff6b4103ac36ea7daeacebaec6b",
+            "path": "mods/SOB-NeoForge-1.21.1-1.0.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/SOB-NeoForge-1.21.1-1.0.0.jar"
+          }
+        },
+        {
+          "id": "SafePastures-1.1.1+1.21.1.jar",
+          "name": "SafePastures-1.1.1+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 8154,
+            "MD5": "63cdf678319768a9f279ca9ad3c0a0e7",
+            "path": "mods/SafePastures-1.1.1+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/SafePastures-1.1.1%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "Searchables-neoforge-1.21.1-1.0.2.jar",
+          "name": "Searchables-neoforge-1.21.1-1.0.2",
+          "type": "File",
+          "artifact": {
+            "size": 77326,
+            "MD5": "0a0a8665bb4d77e3f8139750cb98d9e4",
+            "path": "mods/Searchables-neoforge-1.21.1-1.0.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Searchables-neoforge-1.21.1-1.0.2.jar"
+          }
+        },
+        {
+          "id": "SimpleTMs-neoforge-2.3.3.jar",
+          "name": "SimpleTMs-neoforge-2.3.3",
+          "type": "File",
+          "artifact": {
+            "size": 825317,
+            "MD5": "29272c3f50b4c8b83ecf611debe54642",
+            "path": "mods/SimpleTMs-neoforge-2.3.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/SimpleTMs-neoforge-2.3.3.jar"
+          }
+        },
+        {
+          "id": "SimplyTooltips-neoforge-0.1.3.jar",
+          "name": "SimplyTooltips-neoforge-0.1.3",
+          "type": "File",
+          "artifact": {
+            "size": 5320037,
+            "MD5": "642f83d1cefeb228cc01b70b744189ca",
+            "path": "mods/SimplyTooltips-neoforge-0.1.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/SimplyTooltips-neoforge-0.1.3.jar"
+          }
+        },
+        {
+          "id": "TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+          "name": "TerraBlender-neoforge-1.21.1-4.1.0.8",
+          "type": "File",
+          "artifact": {
+            "size": 120364,
+            "MD5": "9510cef4ca24d7f6bc3144dbf6693f7d",
+            "path": "mods/TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/TerraBlender-neoforge-1.21.1-4.1.0.8.jar"
+          }
+        },
+        {
+          "id": "YungsApi-1.21.1-NeoForge-5.1.6.jar",
+          "name": "YungsApi-1.21.1-NeoForge-5.1.6",
+          "type": "File",
+          "artifact": {
+            "size": 388678,
+            "MD5": "4a27558e0a2fd72512b051525c9abeaf",
+            "path": "mods/YungsApi-1.21.1-NeoForge-5.1.6.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/YungsApi-1.21.1-NeoForge-5.1.6.jar"
+          }
+        },
+        {
+          "id": "YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
+          "name": "YungsBetterDungeons-1.21.1-NeoForge-5.1.4",
+          "type": "File",
+          "artifact": {
+            "size": 782160,
+            "MD5": "91ab689aec35d6929682c147be2d57ed",
+            "path": "mods/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar"
+          }
+        },
+        {
+          "id": "YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar",
+          "name": "YungsBetterMineshafts-1.21.1-NeoForge-5.1.1",
+          "type": "File",
+          "artifact": {
+            "size": 493967,
+            "MD5": "f81789d1443949d17089130feba53710",
+            "path": "mods/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar"
+          }
+        },
+        {
+          "id": "YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar",
+          "name": "YungsBetterStrongholds-1.21.1-NeoForge-5.1.3",
+          "type": "File",
+          "artifact": {
+            "size": 461244,
+            "MD5": "43266a72adc75ba8bb2e234e065e6139",
+            "path": "mods/YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/YungsBetterStrongholds-1.21.1-NeoForge-5.1.3.jar"
+          }
+        },
+        {
+          "id": "ZeroCore2-1.21.1-2.4.21.jar",
+          "name": "ZeroCore2-1.21.1-2.4.21",
+          "type": "File",
+          "artifact": {
+            "size": 1551013,
+            "MD5": "64737cae90157c378ba9aee11e9098e3",
+            "path": "mods/ZeroCore2-1.21.1-2.4.21.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ZeroCore2-1.21.1-2.4.21.jar"
+          }
+        },
+        {
+          "id": "Zeta-1.1-40.jar",
+          "name": "Zeta-1.1-40",
+          "type": "File",
+          "artifact": {
+            "size": 763725,
+            "MD5": "cc0d6e584cfca1f1383c9f120c035c22",
+            "path": "mods/Zeta-1.1-40.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/Zeta-1.1-40.jar"
+          }
+        },
+        {
+          "id": "accessories-neoforge-1.1.0-beta.53+1.21.1.jar",
+          "name": "accessories-neoforge-1.1.0-beta.53+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1078697,
+            "MD5": "f826cbb52d4d05e069eecda4cff65e30",
+            "path": "mods/accessories-neoforge-1.1.0-beta.53+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/accessories-neoforge-1.1.0-beta.53%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "ae2jeiintegration-1.2.1.jar",
+          "name": "ae2jeiintegration-1.2.1",
+          "type": "File",
+          "artifact": {
+            "size": 91710,
+            "MD5": "ec004c7b8c6ad337874806ea48d2afeb",
+            "path": "mods/ae2jeiintegration-1.2.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ae2jeiintegration-1.2.1.jar"
+          }
+        },
+        {
+          "id": "ae2wtlib-19.5.0.jar",
+          "name": "ae2wtlib-19.5.0",
+          "type": "File",
+          "artifact": {
+            "size": 251969,
+            "MD5": "1c9fdb5f8b5fc589cec242aba9ee6935",
+            "path": "mods/ae2wtlib-19.5.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ae2wtlib-19.5.0.jar"
+          }
+        },
+        {
+          "id": "ae_universal_press-2.0-neoforge-1.21.1.jar",
+          "name": "ae_universal_press-2.0-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 100240,
+            "MD5": "eb07c8ae34021785bba307c181b3c223",
+            "path": "mods/ae_universal_press-2.0-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ae_universal_press-2.0-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "aeroclaims-0.8.5.jar",
+          "name": "aeroclaims-0.8.5",
+          "type": "File",
+          "artifact": {
+            "size": 141574,
+            "MD5": "f1cec95c74d8b08ba8ebe0a8c9b1e579",
+            "path": "mods/aeroclaims-0.8.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aeroclaims-0.8.5.jar"
+          }
+        },
+        {
+          "id": "aeronautics_joystick3.0-1.21.1.jar",
+          "name": "aeronautics_joystick3.0-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 76489,
+            "MD5": "c4c12fc8a453e5b62e601ed1d9ac450d",
+            "path": "mods/aeronautics_joystick3.0-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aeronautics_joystick3.0-1.21.1.jar"
+          }
+        },
+        {
+          "id": "aeronauticscompat-1.1.2.jar",
+          "name": "aeronauticscompat-1.1.2",
+          "type": "File",
+          "artifact": {
+            "size": 37307,
+            "MD5": "d6b6655996e5bd876fe7d1b82b54e725",
+            "path": "mods/aeronauticscompat-1.1.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aeronauticscompat-1.1.2.jar"
+          }
+        },
+        {
+          "id": "aeronauticscovers-1.21.1-NeoForge-1.0.1.jar",
+          "name": "aeronauticscovers-1.21.1-NeoForge-1.0.1",
+          "type": "File",
+          "artifact": {
+            "size": 44232,
+            "MD5": "e879ad64844745ae255c71bf41f122cd",
+            "path": "mods/aeronauticscovers-1.21.1-NeoForge-1.0.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aeronauticscovers-1.21.1-NeoForge-1.0.1.jar"
+          }
+        },
+        {
+          "id": "aeroworks-1.2.9.jar",
+          "name": "aeroworks-1.2.9",
+          "type": "File",
+          "artifact": {
+            "size": 183858,
+            "MD5": "3ff65ccfcc51afcb5a2d48ac752f7ecd",
+            "path": "mods/aeroworks-1.2.9.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aeroworks-1.2.9.jar"
+          }
+        },
+        {
+          "id": "aether-1.21.1-1.5.10-neoforge.jar",
+          "name": "aether-1.21.1-1.5.10-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 40223909,
+            "MD5": "87bb550408f2833299a93980c2f41bb0",
+            "path": "mods/aether-1.21.1-1.5.10-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aether-1.21.1-1.5.10-neoforge.jar"
+          }
+        },
+        {
+          "id": "aether_emissivity-1.21.1-1.0.2-neoforge.jar",
+          "name": "aether_emissivity-1.21.1-1.0.2-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 176218,
+            "MD5": "5c0b2a6491cbd2492dc1d7c6d9e576ad",
+            "path": "mods/aether_emissivity-1.21.1-1.0.2-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aether_emissivity-1.21.1-1.0.2-neoforge.jar"
+          }
+        },
+        {
+          "id": "aether_enhanced_extinguishing-1.21.1-1.0.0-neoforge.jar",
+          "name": "aether_enhanced_extinguishing-1.21.1-1.0.0-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 119818,
+            "MD5": "827a2c1e4c940aa26bf7f660cecf880d",
+            "path": "mods/aether_enhanced_extinguishing-1.21.1-1.0.0-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aether_enhanced_extinguishing-1.21.1-1.0.0-neoforge.jar"
+          }
+        },
+        {
+          "id": "aether_ores-1.0.0-neoforge-1.21.1.jar",
+          "name": "aether_ores-1.0.0-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 75695,
+            "MD5": "25b469ad600cd2f1c66a8e0d96bf284b",
+            "path": "mods/aether_ores-1.0.0-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aether_ores-1.0.0-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "aether_protect_your_moa-1.21.1-1.0.0-neoforge.jar",
+          "name": "aether_protect_your_moa-1.21.1-1.0.0-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 1142472,
+            "MD5": "7d27245198a1142ea2b19ee49c50142f",
+            "path": "mods/aether_protect_your_moa-1.21.1-1.0.0-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aether_protect_your_moa-1.21.1-1.0.0-neoforge.jar"
+          }
+        },
+        {
+          "id": "aether_treasure_reforging-1.21.1-1.0.1-neoforge.jar",
+          "name": "aether_treasure_reforging-1.21.1-1.0.1-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 155424,
+            "MD5": "3ddf7650a912603296b79d896a99240c",
+            "path": "mods/aether_treasure_reforging-1.21.1-1.0.1-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/aether_treasure_reforging-1.21.1-1.0.1-neoforge.jar"
+          }
+        },
+        {
+          "id": "alltheleaks-1.1.9+1.21.1-neoforge.jar",
+          "name": "alltheleaks-1.1.9+1.21.1-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 536836,
+            "MD5": "68991b14458ffa27319e3be84535f34d",
+            "path": "mods/alltheleaks-1.1.9+1.21.1-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/alltheleaks-1.1.9%2B1.21.1-neoforge.jar"
+          }
+        },
+        {
+          "id": "appleskin-neoforge-mc1.21-3.0.9.jar",
+          "name": "appleskin-neoforge-mc1.21-3.0.9",
+          "type": "File",
+          "artifact": {
+            "size": 75804,
+            "MD5": "db5fe7619d502cf5b9bc972a955cd3bc",
+            "path": "mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/appleskin-neoforge-mc1.21-3.0.9.jar"
+          }
+        },
+        {
+          "id": "appliedcreate-1.21.1-1.1.5.jar",
+          "name": "appliedcreate-1.21.1-1.1.5",
+          "type": "File",
+          "artifact": {
+            "size": 396751,
+            "MD5": "820302ee7f5eba6173a350d44d42cd68",
+            "path": "mods/appliedcreate-1.21.1-1.1.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/appliedcreate-1.21.1-1.1.5.jar"
+          }
+        },
+        {
+          "id": "appliedenergistics2-19.2.17.jar",
+          "name": "appliedenergistics2-19.2.17",
+          "type": "File",
+          "artifact": {
+            "size": 8230896,
+            "MD5": "1d9768edc90fb50f065949f2628ea991",
+            "path": "mods/appliedenergistics2-19.2.17.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/appliedenergistics2-19.2.17.jar"
+          }
+        },
+        {
+          "id": "appliedschematicannon-1.0.3.jar",
+          "name": "appliedschematicannon-1.0.3",
+          "type": "File",
+          "artifact": {
+            "size": 10970,
+            "MD5": "b643df06a6fc18ba5d443a766a42cf97",
+            "path": "mods/appliedschematicannon-1.0.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/appliedschematicannon-1.0.3.jar"
+          }
+        },
+        {
+          "id": "architectury-13.0.8-neoforge.jar",
+          "name": "architectury-13.0.8-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 584004,
+            "MD5": "7a45a948b525c031ca85d221dfdbed85",
+            "path": "mods/architectury-13.0.8-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/architectury-13.0.8-neoforge.jar"
+          }
+        },
+        {
+          "id": "armourersworkshop-forge-1.21.1-3.2.7-beta.jar",
+          "name": "armourersworkshop-forge-1.21.1-3.2.7-beta",
+          "type": "File",
+          "artifact": {
+            "size": 5892376,
+            "MD5": "c01559a659655155320d77401fd86a6f",
+            "path": "mods/armourersworkshop-forge-1.21.1-3.2.7-beta.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/armourersworkshop-forge-1.21.1-3.2.7-beta.jar"
+          }
+        },
+        {
+          "id": "artifacts-neoforge-13.2.1.jar",
+          "name": "artifacts-neoforge-13.2.1",
+          "type": "File",
+          "artifact": {
+            "size": 1030252,
+            "MD5": "fc38eab4a40582c383e6dbd118d49ef4",
+            "path": "mods/artifacts-neoforge-13.2.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/artifacts-neoforge-13.2.1.jar"
+          }
+        },
+        {
+          "id": "ascended_quark-1.21.1-1.1.6-beta.jar",
+          "name": "ascended_quark-1.21.1-1.1.6-beta",
+          "type": "File",
+          "artifact": {
+            "size": 3666060,
+            "MD5": "e703e42074ef52766721dc27da7f43aa",
+            "path": "mods/ascended_quark-1.21.1-1.1.6-beta.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ascended_quark-1.21.1-1.1.6-beta.jar"
+          }
+        },
+        {
+          "id": "athena-neoforge-1.21.1-4.0.6.jar",
+          "name": "athena-neoforge-1.21.1-4.0.6",
+          "type": "File",
+          "artifact": {
+            "size": 99944,
+            "MD5": "0c22a1ec59e5ce22eef1b614fda59b42",
+            "path": "mods/athena-neoforge-1.21.1-4.0.6.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/athena-neoforge-1.21.1-4.0.6.jar"
+          }
+        },
+        {
+          "id": "attributefix-neoforge-1.21.1-21.1.3.jar",
+          "name": "attributefix-neoforge-1.21.1-21.1.3",
+          "type": "File",
+          "artifact": {
+            "size": 19809,
+            "MD5": "1552cea16a40215f9773e609114ccce1",
+            "path": "mods/attributefix-neoforge-1.21.1-21.1.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/attributefix-neoforge-1.21.1-21.1.3.jar"
+          }
+        },
+        {
+          "id": "azurelib-neo-1.21.1-3.1.8.jar",
+          "name": "azurelib-neo-1.21.1-3.1.8",
+          "type": "File",
+          "artifact": {
+            "size": 871542,
+            "MD5": "57dd803ed9d4a4b9537aa0187ae1fd47",
+            "path": "mods/azurelib-neo-1.21.1-3.1.8.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/azurelib-neo-1.21.1-3.1.8.jar"
+          }
+        },
+        {
+          "id": "badgebox-neoforge-1.3.0.jar",
+          "name": "badgebox-neoforge-1.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 75733,
+            "MD5": "4872146626b7d0982c9768ec007c7ce3",
+            "path": "mods/badgebox-neoforge-1.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/badgebox-neoforge-1.3.0.jar"
+          }
+        },
+        {
+          "id": "balm-neoforge-1.21.1-21.0.56.jar",
+          "name": "balm-neoforge-1.21.1-21.0.56",
+          "type": "File",
+          "artifact": {
+            "size": 739709,
+            "MD5": "7ab16721c9a8bb96666233d8ef46b47d",
+            "path": "mods/balm-neoforge-1.21.1-21.0.56.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/balm-neoforge-1.21.1-21.0.56.jar"
+          }
+        },
+        {
+          "id": "basicweapons-neoforge-2.1.4+1.21.1.jar",
+          "name": "basicweapons-neoforge-2.1.4+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 210180,
+            "MD5": "0a4c27c54e048ac42b4ae651cef91d5f",
+            "path": "mods/basicweapons-neoforge-2.1.4+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/basicweapons-neoforge-2.1.4%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "berrypouch-neoforge-1.21.1-0.5.4-beta.jar",
+          "name": "berrypouch-neoforge-1.21.1-0.5.4-beta",
+          "type": "File",
+          "artifact": {
+            "size": 300604,
+            "MD5": "770dece311aa528725faae1b8833f4c1",
+            "path": "mods/berrypouch-neoforge-1.21.1-0.5.4-beta.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/berrypouch-neoforge-1.21.1-0.5.4-beta.jar"
+          }
+        },
+        {
+          "id": "better_create-1.0.0-neoforge-1.21.1.jar",
+          "name": "better_create-1.0.0-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 2253387,
+            "MD5": "f39d77451164ae1ef9eb2b6ec3a2b528",
+            "path": "mods/better_create-1.0.0-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/better_create-1.0.0-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "bobberdetector-neoforge1.21.1-1.0.3.jar",
+          "name": "bobberdetector-neoforge1.21.1-1.0.3",
+          "type": "File",
+          "artifact": {
+            "size": 239300,
+            "MD5": "f38e7d7311ab948fc396bddf3717bde1",
+            "path": "mods/bobberdetector-neoforge1.21.1-1.0.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/bobberdetector-neoforge1.21.1-1.0.3.jar"
+          }
+        },
+        {
+          "id": "bookshelf-neoforge-1.21.1-21.1.81.jar",
+          "name": "bookshelf-neoforge-1.21.1-21.1.81",
+          "type": "File",
+          "artifact": {
+            "size": 328813,
+            "MD5": "9f627fe031221159d74a491e279f773a",
+            "path": "mods/bookshelf-neoforge-1.21.1-21.1.81.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/bookshelf-neoforge-1.21.1-21.1.81.jar"
+          }
+        },
+        {
+          "id": "born_in_chaos_[Neoforge]_1.21.1_1.7.5.jar",
+          "name": "born_in_chaos_[Neoforge]_1.21.1_1.7.5",
+          "type": "File",
+          "artifact": {
+            "size": 11841361,
+            "MD5": "f60d0ed7a52b341273f3ae82f7e284df",
+            "path": "mods/born_in_chaos_[Neoforge]_1.21.1_1.7.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/born_in_chaos_%5BNeoforge%5D_1.21.1_1.7.5.jar"
+          }
+        },
+        {
+          "id": "brutalbosses-1.21.1-8.6.jar",
+          "name": "brutalbosses-1.21.1-8.6",
+          "type": "File",
+          "artifact": {
+            "size": 199019,
+            "MD5": "f70778a081ed4996d97a6a99f60ce7ec",
+            "path": "mods/brutalbosses-1.21.1-8.6.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/brutalbosses-1.21.1-8.6.jar"
+          }
+        },
+        {
+          "id": "cable_facades-1.21.1-NeoForge-2.0.2.jar",
+          "name": "cable_facades-1.21.1-NeoForge-2.0.2",
+          "type": "File",
+          "artifact": {
+            "size": 280850,
+            "MD5": "7d0e7bbb7dea0b827bef987ef2c6458e",
+            "path": "mods/cable_facades-1.21.1-NeoForge-2.0.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cable_facades-1.21.1-NeoForge-2.0.2.jar"
+          }
+        },
+        {
+          "id": "capturexp-neoforge-1.7.3-1.3.0.jar",
+          "name": "capturexp-neoforge-1.7.3-1.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 22895,
+            "MD5": "36b3d27164bb359ed97ad576bc2af5f5",
+            "path": "mods/capturexp-neoforge-1.7.3-1.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/capturexp-neoforge-1.7.3-1.3.0.jar"
+          }
+        },
+        {
+          "id": "FA+All_Extensions-v1.8.1.zip",
+          "name": "FA+All_Extensions-v1.8.1",
+          "type": "File",
+          "artifact": {
+            "size": 425088,
+            "MD5": "0276e05c597d860237336670f581890a",
+            "path": "resourcepacks/FA+All_Extensions-v1.8.1.zip",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/resourcepacks/FA%2BAll_Extensions-v1.8.1.zip"
+          }
+        },
+        {
+          "id": "FreshAnimations_v1.10.4.zip",
+          "name": "FreshAnimations_v1.10.4",
+          "type": "File",
+          "artifact": {
+            "size": 850941,
+            "MD5": "ab0e8cc3444e98f0fd51ac0d84533d52",
+            "path": "resourcepacks/FreshAnimations_v1.10.4.zip",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/resourcepacks/FreshAnimations_v1.10.4.zip"
+          }
+        },
+        {
+          "id": "boss-refreshed-v2-1.19-1.21.zip",
+          "name": "boss-refreshed-v2-1.19-1.21",
+          "type": "File",
+          "artifact": {
+            "size": 237777,
+            "MD5": "2bb5cb1f6b050d1a4d44765fe911f959",
+            "path": "resourcepacks/boss-refreshed-v2-1.19-1.21.zip",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/resourcepacks/boss-refreshed-v2-1.19-1.21.zip"
+          }
+        },
+        {
+          "id": "ComplementaryReimagined_r5.8.1.zip",
+          "name": "ComplementaryReimagined_r5.8.1",
+          "type": "File",
+          "artifact": {
+            "size": 546925,
+            "MD5": "8dbb914ed233d6e8183ce34eb26beaab",
+            "path": "shaderpacks/ComplementaryReimagined_r5.8.1.zip",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/shaderpacks/ComplementaryReimagined_r5.8.1.zip"
+          }
+        },
+        {
+          "id": "ComplementaryUnbound_r5.8.1.zip",
+          "name": "ComplementaryUnbound_r5.8.1",
+          "type": "File",
+          "artifact": {
+            "size": 546928,
+            "MD5": "0a3553109dbe689a9f76d1aedc8f50c6",
+            "path": "shaderpacks/ComplementaryUnbound_r5.8.1.zip",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/shaderpacks/ComplementaryUnbound_r5.8.1.zip"
+          }
+        },
+        {
+          "id": "carryon-neoforge-1.21.1-2.2.4.4.jar",
+          "name": "carryon-neoforge-1.21.1-2.2.4.4",
+          "type": "File",
+          "artifact": {
+            "size": 357489,
+            "MD5": "116381c8900494997eac5a2c1bf42348",
+            "path": "mods/carryon-neoforge-1.21.1-2.2.4.4.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/carryon-neoforge-1.21.1-2.2.4.4.jar"
+          }
+        },
+        {
+          "id": "cfwinfo-1.6.0.jar",
+          "name": "cfwinfo-1.6.0",
+          "type": "File",
+          "artifact": {
+            "size": 29922,
+            "MD5": "220babfb6c48b7ee4734929c88b8fbab",
+            "path": "mods/cfwinfo-1.6.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cfwinfo-1.6.0.jar"
+          }
+        },
+        {
+          "id": "cloth-config-15.0.140-neoforge.jar",
+          "name": "cloth-config-15.0.140-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 1163890,
+            "MD5": "4c3757160403fcccb8ad468c2ea22862",
+            "path": "mods/cloth-config-15.0.140-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cloth-config-15.0.140-neoforge.jar"
+          }
+        },
+        {
+          "id": "cobbledex-1.21.1-neoforge-1.2.0.jar",
+          "name": "cobbledex-1.21.1-neoforge-1.2.0",
+          "type": "File",
+          "artifact": {
+            "size": 445739,
+            "MD5": "939746b2f6ed7c640287075f850857ef",
+            "path": "mods/cobbledex-1.21.1-neoforge-1.2.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cobbledex-1.21.1-neoforge-1.2.0.jar"
+          }
+        },
+        {
+          "id": "cobbledex-rei-emi-jei-neoforge-2.0.2.jar",
+          "name": "cobbledex-rei-emi-jei-neoforge-2.0.2",
+          "type": "File",
+          "artifact": {
+            "size": 5006478,
+            "MD5": "53b81575033ef217981b515766392c61",
+            "path": "mods/cobbledex-rei-emi-jei-neoforge-2.0.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cobbledex-rei-emi-jei-neoforge-2.0.2.jar"
+          }
+        },
+        {
+          "id": "cobbleloots-neoforge-2.3.0.jar",
+          "name": "cobbleloots-neoforge-2.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 270038,
+            "MD5": "a8ed55a0cef48806b92142859ceff253",
+            "path": "mods/cobbleloots-neoforge-2.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cobbleloots-neoforge-2.3.0.jar"
+          }
+        },
+        {
+          "id": "cobblemonboxlink-neoforge-1.21.1-1.0.6.jar",
+          "name": "cobblemonboxlink-neoforge-1.21.1-1.0.6",
+          "type": "File",
+          "artifact": {
+            "size": 55291,
+            "MD5": "7fce5f45c5dbe45fe9dc8ada07e9fbb6",
+            "path": "mods/cobblemonboxlink-neoforge-1.21.1-1.0.6.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cobblemonboxlink-neoforge-1.21.1-1.0.6.jar"
+          }
+        },
+        {
+          "id": "cobblemonextrastructures-1.21.1-1.3.0-neoforge.jar",
+          "name": "cobblemonextrastructures-1.21.1-1.3.0-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 1297184,
+            "MD5": "2b97e8d0feaffc58e3b8645b543c48bf",
+            "path": "mods/cobblemonextrastructures-1.21.1-1.3.0-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cobblemonextrastructures-1.21.1-1.3.0-neoforge.jar"
+          }
+        },
+        {
+          "id": "cobblemonintegrations-neoforge-1.21.1-1.1.6.jar",
+          "name": "cobblemonintegrations-neoforge-1.21.1-1.1.6",
+          "type": "File",
+          "artifact": {
+            "size": 366734,
+            "MD5": "dfb1841e1d55f8a574beac67393ce9a1",
+            "path": "mods/cobblemonintegrations-neoforge-1.21.1-1.1.6.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cobblemonintegrations-neoforge-1.21.1-1.1.6.jar"
+          }
+        },
+        {
+          "id": "cobgyms-neoforge-3.0.1+1.21.1.jar",
+          "name": "cobgyms-neoforge-3.0.1+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 498497,
+            "MD5": "794032f5878cacc94fbcb04f345c06d2",
+            "path": "mods/cobgyms-neoforge-3.0.1+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cobgyms-neoforge-3.0.1%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "copycats-3.0.4+mc.1.21.1-neoforge.jar",
+          "name": "copycats-3.0.4+mc.1.21.1-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 1791747,
+            "MD5": "c9f1a4b031cdfab8ebfc06d81e891c43",
+            "path": "mods/copycats-3.0.4+mc.1.21.1-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/copycats-3.0.4%2Bmc.1.21.1-neoforge.jar"
+          }
+        },
+        {
+          "id": "cosmeticarmorreworked-1.21.1-v1-neoforge.jar",
+          "name": "cosmeticarmorreworked-1.21.1-v1-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 92722,
+            "MD5": "881eb025d54ca01165c115a38a8d48c4",
+            "path": "mods/cosmeticarmorreworked-1.21.1-v1-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cosmeticarmorreworked-1.21.1-v1-neoforge.jar"
+          }
+        },
+        {
+          "id": "counter-neoforge-1.7.3-1.9.0.jar",
+          "name": "counter-neoforge-1.7.3-1.9.0",
+          "type": "File",
+          "artifact": {
+            "size": 165401,
+            "MD5": "392be26c11408c07e4e59459e07bf7e8",
+            "path": "mods/counter-neoforge-1.7.3-1.9.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/counter-neoforge-1.7.3-1.9.0.jar"
+          }
+        },
+        {
+          "id": "craftedcore-5.8.2.jar",
+          "name": "craftedcore-5.8.2",
+          "type": "File",
+          "artifact": {
+            "size": 780543,
+            "MD5": "87a7406e504e3daecaff0974bf1eb537",
+            "path": "mods/craftedcore-5.8.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/craftedcore-5.8.2.jar"
+          }
+        },
+        {
+          "id": "create-1.21.1-6.0.10.jar",
+          "name": "create-1.21.1-6.0.10",
+          "type": "File",
+          "artifact": {
+            "size": 19123767,
+            "MD5": "179189c52b45a469e683570be4e77188",
+            "path": "mods/create-1.21.1-6.0.10.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create-1.21.1-6.0.10.jar"
+          }
+        },
+        {
+          "id": "create-aeronautics-bundled-1.21.1-1.2.1.jar",
+          "name": "create-aeronautics-bundled-1.21.1-1.2.1",
+          "type": "File",
+          "artifact": {
+            "size": 33030286,
+            "MD5": "dcd6c7da658aecb5bb1fcef501e7f517",
+            "path": "mods/create-aeronautics-bundled-1.21.1-1.2.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create-aeronautics-bundled-1.21.1-1.2.1.jar"
+          }
+        },
+        {
+          "id": "create-enchantment-industry-2.3.1.jar",
+          "name": "create-enchantment-industry-2.3.1",
+          "type": "File",
+          "artifact": {
+            "size": 684729,
+            "MD5": "726c75329cdaa2fdfb1cb07b2f12e034",
+            "path": "mods/create-enchantment-industry-2.3.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create-enchantment-industry-2.3.1.jar"
+          }
+        },
+        {
+          "id": "create-gunsmithing-1.21.1-1.4.6.jar",
+          "name": "create-gunsmithing-1.21.1-1.4.6",
+          "type": "File",
+          "artifact": {
+            "size": 1822112,
+            "MD5": "0dffa60ef8a95bcbb77c6caa8a01dc7b",
+            "path": "mods/create-gunsmithing-1.21.1-1.4.6.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create-gunsmithing-1.21.1-1.4.6.jar"
+          }
+        },
+        {
+          "id": "create-integrated-farming-1.2.2.jar",
+          "name": "create-integrated-farming-1.2.2",
+          "type": "File",
+          "artifact": {
+            "size": 408059,
+            "MD5": "4acdf8ec1adb321697e32db103256392",
+            "path": "mods/create-integrated-farming-1.2.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create-integrated-farming-1.2.2.jar"
+          }
+        },
+        {
+          "id": "create-new-age-1.1.7c+neoforge-mc1.21.1.jar",
+          "name": "create-new-age-1.1.7c+neoforge-mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1590363,
+            "MD5": "678d86712521b7da527629ce54e826ec",
+            "path": "mods/create-new-age-1.1.7c+neoforge-mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create-new-age-1.1.7c%2Bneoforge-mc1.21.1.jar"
+          }
+        },
+        {
+          "id": "create-stuff-additions1.21.1_v2.1.3.jar",
+          "name": "create-stuff-additions1.21.1_v2.1.3",
+          "type": "File",
+          "artifact": {
+            "size": 1325365,
+            "MD5": "7f17155946b7918765af8169ba1661ca",
+            "path": "mods/create-stuff-additions1.21.1_v2.1.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create-stuff-additions1.21.1_v2.1.3.jar"
+          }
+        },
+        {
+          "id": "create_ae_generator-1.21.1-1.1.jar",
+          "name": "create_ae_generator-1.21.1-1.1",
+          "type": "File",
+          "artifact": {
+            "size": 121935,
+            "MD5": "c06c939a8644c55f4f544eca83452b46",
+            "path": "mods/create_ae_generator-1.21.1-1.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_ae_generator-1.21.1-1.1.jar"
+          }
+        },
+        {
+          "id": "create_aeronautics_automated_logistics-0.3.0.jar",
+          "name": "create_aeronautics_automated_logistics-0.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 618564,
+            "MD5": "08212c100a5eb643bbdef8bd1d42543c",
+            "path": "mods/create_aeronautics_automated_logistics-0.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_aeronautics_automated_logistics-0.3.0.jar"
+          }
+        },
+        {
+          "id": "create_aeronautics_throwable_rope_connector-0.3.0.jar",
+          "name": "create_aeronautics_throwable_rope_connector-0.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 173607,
+            "MD5": "6d53b2042ef76f5cc1d59e9c1e64574b",
+            "path": "mods/create_aeronautics_throwable_rope_connector-0.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_aeronautics_throwable_rope_connector-0.3.0.jar"
+          }
+        },
+        {
+          "id": "create_aeronautics_toolgun-0.1.8.jar",
+          "name": "create_aeronautics_toolgun-0.1.8",
+          "type": "File",
+          "artifact": {
+            "size": 765451,
+            "MD5": "63ed42f718838af5ee6ace7c1ad30e41",
+            "path": "mods/create_aeronautics_toolgun-0.1.8.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_aeronautics_toolgun-0.1.8.jar"
+          }
+        },
+        {
+          "id": "create_cold_sweat-1.1.2.jar",
+          "name": "create_cold_sweat-1.1.2",
+          "type": "File",
+          "artifact": {
+            "size": 214958,
+            "MD5": "d6d9b75fb61715bbb5e6347dd4ee53bc",
+            "path": "mods/create_cold_sweat-1.1.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_cold_sweat-1.1.2.jar"
+          }
+        },
+        {
+          "id": "create_creative-1.0.5.2-neoforge-1.21.1.jar",
+          "name": "create_creative-1.0.5.2-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 43808,
+            "MD5": "fdae9878220edfd0c5a394f20416666e",
+            "path": "mods/create_creative-1.0.5.2-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_creative-1.0.5.2-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "create_encapsulated-1.0.7+1.21.1.jar",
+          "name": "create_encapsulated-1.0.7+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 621832,
+            "MD5": "b8d351ac578e47ef4b2645ccc82be725",
+            "path": "mods/create_encapsulated-1.0.7+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_encapsulated-1.0.7%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "create_mekanism_compat-0.1.10.jar",
+          "name": "create_mekanism_compat-0.1.10",
+          "type": "File",
+          "artifact": {
+            "size": 69918,
+            "MD5": "036fe75fb7d68cf7e1897322b55b86a3",
+            "path": "mods/create_mekanism_compat-0.1.10.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_mekanism_compat-0.1.10.jar"
+          }
+        },
+        {
+          "id": "create_mf-0.1.1-neoforge-1.21.1.jar",
+          "name": "create_mf-0.1.1-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 10566537,
+            "MD5": "359eab9f006ce9c5aff87e753c00efc8",
+            "path": "mods/create_mf-0.1.1-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_mf-0.1.1-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "create_ultimate_factory-2.2.4-neoforge-1.21.1.jar",
+          "name": "create_ultimate_factory-2.2.4-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 235239,
+            "MD5": "1c7d2f2c8ff0c2c99f9bcfaf8aa0c97c",
+            "path": "mods/create_ultimate_factory-2.2.4-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_ultimate_factory-2.2.4-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "createaddition-1.5.10.jar",
+          "name": "createaddition-1.5.10",
+          "type": "File",
+          "artifact": {
+            "size": 1595173,
+            "MD5": "7f5703ccd9fce093e5501f64986028c7",
+            "path": "mods/createaddition-1.5.10.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createaddition-1.5.10.jar"
+          }
+        },
+        {
+          "id": "createaeronauticscurios-neoforge-1.21.1-1.0.jar",
+          "name": "createaeronauticscurios-neoforge-1.21.1-1.0",
+          "type": "File",
+          "artifact": {
+            "size": 10367,
+            "MD5": "72725e10fc56599b770aa49a5bc11032",
+            "path": "mods/createaeronauticscurios-neoforge-1.21.1-1.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createaeronauticscurios-neoforge-1.21.1-1.0.jar"
+          }
+        },
+        {
+          "id": "createburnerfuel-1.0.2.jar",
+          "name": "createburnerfuel-1.0.2",
+          "type": "File",
+          "artifact": {
+            "size": 19565,
+            "MD5": "f24856a601e4ff915d819c8a35da1593",
+            "path": "mods/createburnerfuel-1.0.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createburnerfuel-1.0.2.jar"
+          }
+        },
+        {
+          "id": "createdeco-2.1.3.jar",
+          "name": "createdeco-2.1.3",
+          "type": "File",
+          "artifact": {
+            "size": 3328498,
+            "MD5": "16d5818298f6332038528cd13bd4ff1a",
+            "path": "mods/createdeco-2.1.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createdeco-2.1.3.jar"
+          }
+        },
+        {
+          "id": "createdieselgenerators-1.21.1-1.3.12.jar",
+          "name": "createdieselgenerators-1.21.1-1.3.12",
+          "type": "File",
+          "artifact": {
+            "size": 3164035,
+            "MD5": "d258bb598504c4d0e72dc9e3443a252c",
+            "path": "mods/createdieselgenerators-1.21.1-1.3.12.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createdieselgenerators-1.21.1-1.3.12.jar"
+          }
+        },
+        {
+          "id": "creategoggles-1.21.1-6.1.1-[NEOFORGE].jar",
+          "name": "creategoggles-1.21.1-6.1.1-[NEOFORGE]",
+          "type": "File",
+          "artifact": {
+            "size": 180932,
+            "MD5": "9d8f25a3de56e8106502ab0e0ca17925",
+            "path": "mods/creategoggles-1.21.1-6.1.1-[NEOFORGE].jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/creategoggles-1.21.1-6.1.1-%5BNEOFORGE%5D.jar"
+          }
+        },
+        {
+          "id": "createlowheated-neoforge-1.21.1-6.0.10-2.jar",
+          "name": "createlowheated-neoforge-1.21.1-6.0.10-2",
+          "type": "File",
+          "artifact": {
+            "size": 186031,
+            "MD5": "02ad42041ebb585a89f72750081c21a5",
+            "path": "mods/createlowheated-neoforge-1.21.1-6.0.10-2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createlowheated-neoforge-1.21.1-6.0.10-2.jar"
+          }
+        },
+        {
+          "id": "createreautomated-1.21.1-neoforge-0.2.0.jar",
+          "name": "createreautomated-1.21.1-neoforge-0.2.0",
+          "type": "File",
+          "artifact": {
+            "size": 309057,
+            "MD5": "64ae112d6dcc61e2029439d353d431c2",
+            "path": "mods/createreautomated-1.21.1-neoforge-0.2.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createreautomated-1.21.1-neoforge-0.2.0.jar"
+          }
+        },
+        {
+          "id": "createstockbridge-1.21.1-0.2.0.jar",
+          "name": "createstockbridge-1.21.1-0.2.0",
+          "type": "File",
+          "artifact": {
+            "size": 180413,
+            "MD5": "bf72f898430bb9d163e040e58ffff074",
+            "path": "mods/createstockbridge-1.21.1-0.2.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createstockbridge-1.21.1-0.2.0.jar"
+          }
+        },
+        {
+          "id": "createthrusters-bundled-0.1.10.jar",
+          "name": "createthrusters-bundled-0.1.10",
+          "type": "File",
+          "artifact": {
+            "size": 2419108,
+            "MD5": "006c30d620acb96e988a08102a37e26d",
+            "path": "mods/createthrusters-bundled-0.1.10.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/createthrusters-bundled-0.1.10.jar"
+          }
+        },
+        {
+          "id": "cupboard-1.21-3.5.jar",
+          "name": "cupboard-1.21-3.5",
+          "type": "File",
+          "artifact": {
+            "size": 26659,
+            "MD5": "48430a7d993b39ac3559f4773acc6678",
+            "path": "mods/cupboard-1.21-3.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/cupboard-1.21-3.5.jar"
+          }
+        },
+        {
+          "id": "curios-neoforge-9.5.1+1.21.1.jar",
+          "name": "curios-neoforge-9.5.1+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 410690,
+            "MD5": "e8f0a3574264bb202c153b90293dc84c",
+            "path": "mods/curios-neoforge-9.5.1+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/curios-neoforge-9.5.1%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "darksmelting-neoforge-1.21-1.1.7.jar",
+          "name": "darksmelting-neoforge-1.21-1.1.7",
+          "type": "File",
+          "artifact": {
+            "size": 8128,
+            "MD5": "661176c50254e7c426f8c4db2d23f47e",
+            "path": "mods/darksmelting-neoforge-1.21-1.1.7.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/darksmelting-neoforge-1.21-1.1.7.jar"
+          }
+        },
+        {
+          "id": "delightfulcreators-1.2.jar",
+          "name": "delightfulcreators-1.2",
+          "type": "File",
+          "artifact": {
+            "size": 352905,
+            "MD5": "dc14ddbb8779a716ceb8f8182b28f875",
+            "path": "mods/delightfulcreators-1.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/delightfulcreators-1.2.jar"
+          }
+        },
+        {
+          "id": "ecologics-1.21.1-2.3.6.jar",
+          "name": "ecologics-1.21.1-2.3.6",
+          "type": "File",
+          "artifact": {
+            "size": 1886895,
+            "MD5": "e056b23e99da4ec2367997489f694c2a",
+            "path": "mods/ecologics-1.21.1-2.3.6.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ecologics-1.21.1-2.3.6.jar"
+          }
+        },
+        {
+          "id": "emi-1.1.24+1.21.1+neoforge.jar",
+          "name": "emi-1.1.24+1.21.1+neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 1111538,
+            "MD5": "e4aede758ec7c675d2255234df7ed4ff",
+            "path": "mods/emi-1.1.24+1.21.1+neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/emi-1.1.24%2B1.21.1%2Bneoforge.jar"
+          }
+        },
+        {
+          "id": "enhancedbossbars-1.0.0.jar",
+          "name": "enhancedbossbars-1.0.0",
+          "type": "File",
+          "artifact": {
+            "size": 252820,
+            "MD5": "a27338ca15c72b1726834c98d2c75795",
+            "path": "mods/enhancedbossbars-1.0.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/enhancedbossbars-1.0.0.jar"
+          }
+        },
+        {
+          "id": "entityculling-neoforge-1.10.2-mc1.21.1.jar",
+          "name": "entityculling-neoforge-1.10.2-mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1582824,
+            "MD5": "88831a176ed788b91d9c881a70a86902",
+            "path": "mods/entityculling-neoforge-1.10.2-mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/entityculling-neoforge-1.10.2-mc1.21.1.jar"
+          }
+        },
+        {
+          "id": "epic-knights-1.21.1-neoforge-10.12.jar",
+          "name": "epic-knights-1.21.1-neoforge-10.12",
+          "type": "File",
+          "artifact": {
+            "size": 2606223,
+            "MD5": "865c7c2a5ea3901c7f49499ff256e3e1",
+            "path": "mods/epic-knights-1.21.1-neoforge-10.12.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/epic-knights-1.21.1-neoforge-10.12.jar"
+          }
+        },
+        {
+          "id": "explore_ruins_aether-1.0.0-neoforge-1.21.1.jar",
+          "name": "explore_ruins_aether-1.0.0-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 149000,
+            "MD5": "bb6dc10c721413ffb32d64aacad5f2c7",
+            "path": "mods/explore_ruins_aether-1.0.0-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/explore_ruins_aether-1.0.0-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "farmers-cutting-the-aether-1.21.1-1.0-neoforge.jar",
+          "name": "farmers-cutting-the-aether-1.21.1-1.0-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 17255,
+            "MD5": "dc11803828a6846aafe65dd28e98cde9",
+            "path": "mods/farmers-cutting-the-aether-1.21.1-1.0-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/farmers-cutting-the-aether-1.21.1-1.0-neoforge.jar"
+          }
+        },
+        {
+          "id": "fastleafdecay-35.jar",
+          "name": "fastleafdecay-35",
+          "type": "File",
+          "artifact": {
+            "size": 9511,
+            "MD5": "97223075d6407a012024fd7e3c48e5e8",
+            "path": "mods/fastleafdecay-35.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/fastleafdecay-35.jar"
+          }
+        },
+        {
+          "id": "ferritecore-7.0.3-neoforge.jar",
+          "name": "ferritecore-7.0.3-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 121559,
+            "MD5": "e0374dac41d6c641903f9e241911e1d3",
+            "path": "mods/ferritecore-7.0.3-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ferritecore-7.0.3-neoforge.jar"
+          }
+        },
+        {
+          "id": "fightorflight-neoforge-0.10.7.jar",
+          "name": "fightorflight-neoforge-0.10.7",
+          "type": "File",
+          "artifact": {
+            "size": 1418105,
+            "MD5": "655f82f6a8be4ead1600fb4eb3516e48",
+            "path": "mods/fightorflight-neoforge-0.10.7.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/fightorflight-neoforge-0.10.7.jar"
+          }
+        },
+        {
+          "id": "fzzy_config-0.7.6+1.21+neoforge.jar",
+          "name": "fzzy_config-0.7.6+1.21+neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 2369895,
+            "MD5": "cd0823556e6d24046bd0f4ba74cd4981",
+            "path": "mods/fzzy_config-0.7.6+1.21+neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/fzzy_config-0.7.6%2B1.21%2Bneoforge.jar"
+          }
+        },
+        {
+          "id": "geckolib-neoforge-1.21.1-4.8.4.jar",
+          "name": "geckolib-neoforge-1.21.1-4.8.4",
+          "type": "File",
+          "artifact": {
+            "size": 622582,
+            "MD5": "f68322025b603faaaaa5a1b3c52dc2ae",
+            "path": "mods/geckolib-neoforge-1.21.1-4.8.4.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/geckolib-neoforge-1.21.1-4.8.4.jar"
+          }
+        },
+        {
+          "id": "guideme-21.1.15.jar",
+          "name": "guideme-21.1.15",
+          "type": "File",
+          "artifact": {
+            "size": 9309183,
+            "MD5": "e155422cf43d14722de051272137c294",
+            "path": "mods/guideme-21.1.15.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/guideme-21.1.15.jar"
+          }
+        },
+        {
+          "id": "igleelib-1.21.1-1.2.7.jar",
+          "name": "igleelib-1.21.1-1.2.7",
+          "type": "File",
+          "artifact": {
+            "size": 235777,
+            "MD5": "b5f77922081bbd2820e4403ed3629792",
+            "path": "mods/igleelib-1.21.1-1.2.7.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/igleelib-1.21.1-1.2.7.jar"
+          }
+        },
+        {
+          "id": "interiors-1.21.1-neoforge-0.6.1.jar",
+          "name": "interiors-1.21.1-neoforge-0.6.1",
+          "type": "File",
+          "artifact": {
+            "size": 486912,
+            "MD5": "dabcfb4a3a7ec2a6a44fc713ba389a77",
+            "path": "mods/interiors-1.21.1-neoforge-0.6.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/interiors-1.21.1-neoforge-0.6.1.jar"
+          }
+        },
+        {
+          "id": "iris-neoforge-1.8.12+mc1.21.1.jar",
+          "name": "iris-neoforge-1.8.12+mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 2438548,
+            "MD5": "6c1122aa7c2b1a4f24831e394c5b513f",
+            "path": "mods/iris-neoforge-1.8.12+mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/iris-neoforge-1.8.12%2Bmc1.21.1.jar"
+          }
+        },
+        {
+          "id": "ironchest-1.21-neoforge-16.0.7.jar",
+          "name": "ironchest-1.21-neoforge-16.0.7",
+          "type": "File",
+          "artifact": {
+            "size": 305975,
+            "MD5": "4ac578f2089261f0625e0434ecffc05f",
+            "path": "mods/ironchest-1.21-neoforge-16.0.7.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ironchest-1.21-neoforge-16.0.7.jar"
+          }
+        },
+        {
+          "id": "ironfurnaces-neoforge-1.21.1-4.3.2.jar",
+          "name": "ironfurnaces-neoforge-1.21.1-4.3.2",
+          "type": "File",
+          "artifact": {
+            "size": 576866,
+            "MD5": "cd8b224d7d81faadca30339841c11928",
+            "path": "mods/ironfurnaces-neoforge-1.21.1-4.3.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ironfurnaces-neoforge-1.21.1-4.3.2.jar"
+          }
+        },
+        {
+          "id": "jearchaeology-1.21.1-1.2.0.jar",
+          "name": "jearchaeology-1.21.1-1.2.0",
+          "type": "File",
+          "artifact": {
+            "size": 53509,
+            "MD5": "202ed95169b4b6dab922a801800969c5",
+            "path": "mods/jearchaeology-1.21.1-1.2.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/jearchaeology-1.21.1-1.2.0.jar"
+          }
+        },
+        {
+          "id": "jei-1.21.1-neoforge-19.27.0.336.jar",
+          "name": "jei-1.21.1-neoforge-19.27.0.336",
+          "type": "File",
+          "artifact": {
+            "size": 1529192,
+            "MD5": "d3da422d1a44e31af8a8d036b3d338f7",
+            "path": "mods/jei-1.21.1-neoforge-19.27.0.336.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/jei-1.21.1-neoforge-19.27.0.336.jar"
+          }
+        },
+        {
+          "id": "justenoughbreeding-neoforge-1.21-1.21.1-1.6.2.jar",
+          "name": "justenoughbreeding-neoforge-1.21-1.21.1-1.6.2",
+          "type": "File",
+          "artifact": {
+            "size": 134388,
+            "MD5": "4870855a7805af780b53912d41c65e9f",
+            "path": "mods/justenoughbreeding-neoforge-1.21-1.21.1-1.6.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/justenoughbreeding-neoforge-1.21-1.21.1-1.6.2.jar"
+          }
+        },
+        {
+          "id": "kotlinforforge-5.11.0-all.jar",
+          "name": "kotlinforforge-5.11.0-all",
+          "type": "File",
+          "artifact": {
+            "size": 6869790,
+            "MD5": "ad515a1a34f47bbc17aabab0b99ecee4",
+            "path": "mods/kotlinforforge-5.11.0-all.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/kotlinforforge-5.11.0-all.jar"
+          }
+        },
+        {
+          "id": "libIPN-neoforge-1.21.1-6.6.3.jar",
+          "name": "libIPN-neoforge-1.21.1-6.6.3",
+          "type": "File",
+          "artifact": {
+            "size": 626146,
+            "MD5": "208d2c5832cf08b4bf64bae3b6025040",
+            "path": "mods/libIPN-neoforge-1.21.1-6.6.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/libIPN-neoforge-1.21.1-6.6.3.jar"
+          }
+        },
+        {
+          "id": "lootr-neoforge-1.21.1-1.11.37.120.jar",
+          "name": "lootr-neoforge-1.21.1-1.11.37.120",
+          "type": "File",
+          "artifact": {
+            "size": 976023,
+            "MD5": "c854cb36df6947d1a8bc222fec365359",
+            "path": "mods/lootr-neoforge-1.21.1-1.11.37.120.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/lootr-neoforge-1.21.1-1.11.37.120.jar"
+          }
+        },
+        {
+          "id": "lootrmon-neoforge-1.21.1-0.0.0.1.jar",
+          "name": "lootrmon-neoforge-1.21.1-0.0.0.1",
+          "type": "File",
+          "artifact": {
+            "size": 46718,
+            "MD5": "57649fad01f30169db8cdcb9771fe57e",
+            "path": "mods/lootrmon-neoforge-1.21.1-0.0.0.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/lootrmon-neoforge-1.21.1-0.0.0.1.jar"
+          }
+        },
+        {
+          "id": "mega_showdown-neoforge-1.8.4+1.7.3+1.21.1.jar",
+          "name": "mega_showdown-neoforge-1.8.4+1.7.3+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 17260759,
+            "MD5": "05aee8ba24de40abedccba1f6e5a9cf6",
+            "path": "mods/mega_showdown-neoforge-1.8.4+1.7.3+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/mega_showdown-neoforge-1.8.4%2B1.7.3%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "mekagenjei-1.2.jar",
+          "name": "mekagenjei-1.2",
+          "type": "File",
+          "artifact": {
+            "size": 42757,
+            "MD5": "144f34c9d0d00c2026bc0753b1b176cb",
+            "path": "mods/mekagenjei-1.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/mekagenjei-1.2.jar"
+          }
+        },
+        {
+          "id": "mekanism_lasers-1.1.10.3-c-prerelease.jar",
+          "name": "mekanism_lasers-1.1.10.3-c-prerelease",
+          "type": "File",
+          "artifact": {
+            "size": 182623,
+            "MD5": "0750d24b805b70595e4a65cf41ad5450",
+            "path": "mods/mekanism_lasers-1.1.10.3-c-prerelease.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/mekanism_lasers-1.1.10.3-c-prerelease.jar"
+          }
+        },
+        {
+          "id": "mekanism_unleashed-0.3.4.jar",
+          "name": "mekanism_unleashed-0.3.4",
+          "type": "File",
+          "artifact": {
+            "size": 20647,
+            "MD5": "ed0df67b4cae43bf92e45382826faf46",
+            "path": "mods/mekanism_unleashed-0.3.4.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/mekanism_unleashed-0.3.4.jar"
+          }
+        },
+        {
+          "id": "mekanism_weaponry-2.1.4.jar",
+          "name": "mekanism_weaponry-2.1.4",
+          "type": "File",
+          "artifact": {
+            "size": 1014172,
+            "MD5": "749f1f7e29d9ef62b14364a0051bc946",
+            "path": "mods/mekanism_weaponry-2.1.4.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/mekanism_weaponry-2.1.4.jar"
+          }
+        },
+        {
+          "id": "mekanismcurios-1.21.1-1.2.1.jar",
+          "name": "mekanismcurios-1.21.1-1.2.1",
+          "type": "File",
+          "artifact": {
+            "size": 99159,
+            "MD5": "81b979183a575f0fdc6b076825d9f08e",
+            "path": "mods/mekanismcurios-1.21.1-1.2.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/mekanismcurios-1.21.1-1.2.1.jar"
+          }
+        },
+        {
+          "id": "modernfix-neoforge-5.27.8+mc1.21.1.jar",
+          "name": "modernfix-neoforge-5.27.8+mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 568759,
+            "MD5": "2e5b3d03a749619603ede8391fdbe4e9",
+            "path": "mods/modernfix-neoforge-5.27.8+mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/modernfix-neoforge-5.27.8%2Bmc1.21.1.jar"
+          }
+        },
+        {
+          "id": "mowziesmobs-1.21.1-1.8.2.jar",
+          "name": "mowziesmobs-1.21.1-1.8.2",
+          "type": "File",
+          "artifact": {
+            "size": 36042925,
+            "MD5": "5ca87731e5c0b4834a4a2e9a435a5cac",
+            "path": "mods/mowziesmobs-1.21.1-1.8.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/mowziesmobs-1.21.1-1.8.2.jar"
+          }
+        },
+        {
+          "id": "notenoughanimations-neoforge-1.12.3-mc1.21.1.jar",
+          "name": "notenoughanimations-neoforge-1.12.3-mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1938281,
+            "MD5": "943c6162c7e78df7eee9edbc7d1eceb1",
+            "path": "mods/notenoughanimations-neoforge-1.12.3-mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/notenoughanimations-neoforge-1.12.3-mc1.21.1.jar"
+          }
+        },
+        {
+          "id": "ntgl-1.21.1-3.1.5.jar",
+          "name": "ntgl-1.21.1-3.1.5",
+          "type": "File",
+          "artifact": {
+            "size": 3879865,
+            "MD5": "9871209b0aee625f4d8dbce886f15a23",
+            "path": "mods/ntgl-1.21.1-3.1.5.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ntgl-1.21.1-3.1.5.jar"
+          }
+        },
+        {
+          "id": "open-parties-and-claims-neoforge-1.21.1-0.26.3.jar",
+          "name": "open-parties-and-claims-neoforge-1.21.1-0.26.3",
+          "type": "File",
+          "artifact": {
+            "size": 1577089,
+            "MD5": "cba6e9085fd179825ae5eeb9be38faf6",
+            "path": "mods/open-parties-and-claims-neoforge-1.21.1-0.26.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/open-parties-and-claims-neoforge-1.21.1-0.26.3.jar"
+          }
+        },
+        {
+          "id": "optifinecapes-1.0.1.jar",
+          "name": "optifinecapes-1.0.1",
+          "type": "File",
+          "artifact": {
+            "size": 10778,
+            "MD5": "761ab3c9282a85a12b35cd4f98059b11",
+            "path": "mods/optifinecapes-1.0.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/optifinecapes-1.0.1.jar"
+          }
+        },
+        {
+          "id": "owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar",
+          "name": "owo-lib-neoforge-0.12.15.5-beta.1+1.21",
+          "type": "File",
+          "artifact": {
+            "size": 1221583,
+            "MD5": "4c8323c3d0493f7e82a2287e5ca9df7f",
+            "path": "mods/owo-lib-neoforge-0.12.15.5-beta.1+1.21.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/owo-lib-neoforge-0.12.15.5-beta.1%2B1.21.jar"
+          }
+        },
+        {
+          "id": "player-animation-lib-forge-2.0.4+1.21.1.jar",
+          "name": "player-animation-lib-forge-2.0.4+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 203149,
+            "MD5": "ecb81c9479605db12a77bea774b88406",
+            "path": "mods/player-animation-lib-forge-2.0.4+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/player-animation-lib-forge-2.0.4%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "playerxp-neoforge-1.0.9+1.21.1.jar",
+          "name": "playerxp-neoforge-1.0.9+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 10974,
+            "MD5": "510fb05e0e172b443ee46b4466ae09e9",
+            "path": "mods/playerxp-neoforge-1.0.9+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/playerxp-neoforge-1.0.9%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "polyeng-0.4.1.jar",
+          "name": "polyeng-0.4.1",
+          "type": "File",
+          "artifact": {
+            "size": 20130,
+            "MD5": "67f09141899fdd8b65182ea8ad3f8ac4",
+            "path": "mods/polyeng-0.4.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/polyeng-0.4.1.jar"
+          }
+        },
+        {
+          "id": "polymorph-neoforge-1.1.0+1.21.1.jar",
+          "name": "polymorph-neoforge-1.1.0+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 174972,
+            "MD5": "2368e0c92ae882677bbf4b87418656b9",
+            "path": "mods/polymorph-neoforge-1.1.0+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/polymorph-neoforge-1.1.0%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "portable_engine_liquid_fuel-2.0.0-neoforge-1.21.1.jar",
+          "name": "portable_engine_liquid_fuel-2.0.0-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 133486,
+            "MD5": "f2f13a472e1027470ab14d6401e08c3f",
+            "path": "mods/portable_engine_liquid_fuel-2.0.0-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/portable_engine_liquid_fuel-2.0.0-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "prickle-neoforge-1.21.1-21.1.11.jar",
+          "name": "prickle-neoforge-1.21.1-21.1.11",
+          "type": "File",
+          "artifact": {
+            "size": 84812,
+            "MD5": "533c154fb306cd8043564ee1533873ce",
+            "path": "mods/prickle-neoforge-1.21.1-21.1.11.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/prickle-neoforge-1.21.1-21.1.11.jar"
+          }
+        },
+        {
+          "id": "railways-0.2.0+neoforge-mc1.21.1.jar",
+          "name": "railways-0.2.0+neoforge-mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 12106875,
+            "MD5": "97aa3c038e0a8a18e3ea057e99b84c35",
+            "path": "mods/railways-0.2.0+neoforge-mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/railways-0.2.0%2Bneoforge-mc1.21.1.jar"
+          }
+        },
+        {
+          "id": "ranged_weapon_api-neoforge-2.3.3+1.21.1.jar",
+          "name": "ranged_weapon_api-neoforge-2.3.3+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 141442,
+            "MD5": "6c2c12f19cca40651ea78d244530e5ff",
+            "path": "mods/ranged_weapon_api-neoforge-2.3.3+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ranged_weapon_api-neoforge-2.3.3%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "rctapi-neoforge-1.21.1-0.15.2-beta.jar",
+          "name": "rctapi-neoforge-1.21.1-0.15.2-beta",
+          "type": "File",
+          "artifact": {
+            "size": 235207,
+            "MD5": "928b3ee49d2d2bc31bb2c9c1a9bbc595",
+            "path": "mods/rctapi-neoforge-1.21.1-0.15.2-beta.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/rctapi-neoforge-1.21.1-0.15.2-beta.jar"
+          }
+        },
+        {
+          "id": "rctmod-neoforge-1.21.1-0.18.1-beta.jar",
+          "name": "rctmod-neoforge-1.21.1-0.18.1-beta",
+          "type": "File",
+          "artifact": {
+            "size": 7536984,
+            "MD5": "df8311b028597bc551fdbda219d30ebd",
+            "path": "mods/rctmod-neoforge-1.21.1-0.18.1-beta.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/rctmod-neoforge-1.21.1-0.18.1-beta.jar"
+          }
+        },
+        {
+          "id": "refinedstorage-mekanism-integration-1.1.1.jar",
+          "name": "refinedstorage-mekanism-integration-1.1.1",
+          "type": "File",
+          "artifact": {
+            "size": 160633,
+            "MD5": "4bb972b676e226ec1db720fc286e3696",
+            "path": "mods/refinedstorage-mekanism-integration-1.1.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/refinedstorage-mekanism-integration-1.1.1.jar"
+          }
+        },
+        {
+          "id": "refinedstorage-neoforge-2.0.8.jar",
+          "name": "refinedstorage-neoforge-2.0.8",
+          "type": "File",
+          "artifact": {
+            "size": 4359902,
+            "MD5": "361ee5209c51de129c37539e978fd62d",
+            "path": "mods/refinedstorage-neoforge-2.0.8.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/refinedstorage-neoforge-2.0.8.jar"
+          }
+        },
+        {
+          "id": "sable-neoforge-1.21.1-1.2.2.jar",
+          "name": "sable-neoforge-1.21.1-1.2.2",
+          "type": "File",
+          "artifact": {
+            "size": 12719293,
+            "MD5": "1704d138ecf22c2f0db3ce9f9bf6207b",
+            "path": "mods/sable-neoforge-1.21.1-1.2.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/sable-neoforge-1.21.1-1.2.2.jar"
+          }
+        },
+        {
+          "id": "simplymore-neoforge-1.2.2+1.21.1.jar",
+          "name": "simplymore-neoforge-1.2.2+1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1621297,
+            "MD5": "eb7e148c407093cfb20daa4b719073ac",
+            "path": "mods/simplymore-neoforge-1.2.2+1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/simplymore-neoforge-1.2.2%2B1.21.1.jar"
+          }
+        },
+        {
+          "id": "simplyswords-neoforge-1.63.0-1.21.1.jar",
+          "name": "simplyswords-neoforge-1.63.0-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 12617777,
+            "MD5": "05e8f5dfbd0c0ff561c305ccb2eca965",
+            "path": "mods/simplyswords-neoforge-1.63.0-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/simplyswords-neoforge-1.63.0-1.21.1.jar"
+          }
+        },
+        {
+          "id": "skinshifter-1.3.jar",
+          "name": "skinshifter-1.3",
+          "type": "File",
+          "artifact": {
+            "size": 31970,
+            "MD5": "5f7f2ece7b20d4ffd8bc300c758fb801",
+            "path": "mods/skinshifter-1.3.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/skinshifter-1.3.jar"
+          }
+        },
+        {
+          "id": "sodium-neoforge-0.6.13+mc1.21.1.jar",
+          "name": "sodium-neoforge-0.6.13+mc1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1162994,
+            "MD5": "e5018c782d851fea76be0205b7616e5d",
+            "path": "mods/sodium-neoforge-0.6.13+mc1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/sodium-neoforge-0.6.13%2Bmc1.21.1.jar"
+          }
+        },
+        {
+          "id": "sophisticatedcore-1.21.1-1.4.41.1867.jar",
+          "name": "sophisticatedcore-1.21.1-1.4.41.1867",
+          "type": "File",
+          "artifact": {
+            "size": 1607780,
+            "MD5": "bd9f1dfd1b7ab331827a7ecdb7059265",
+            "path": "mods/sophisticatedcore-1.21.1-1.4.41.1867.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/sophisticatedcore-1.21.1-1.4.41.1867.jar"
+          }
+        },
+        {
+          "id": "sophisticatedstorage-1.21.1-1.5.49.1731.jar",
+          "name": "sophisticatedstorage-1.21.1-1.5.49.1731",
+          "type": "File",
+          "artifact": {
+            "size": 1689247,
+            "MD5": "0d231d94dbec494e24ec02e64c28c6c9",
+            "path": "mods/sophisticatedstorage-1.21.1-1.5.49.1731.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/sophisticatedstorage-1.21.1-1.5.49.1731.jar"
+          }
+        },
+        {
+          "id": "sophisticatedstoragecreateintegration-1.21.1-0.1.17.132.jar",
+          "name": "sophisticatedstoragecreateintegration-1.21.1-0.1.17.132",
+          "type": "File",
+          "artifact": {
+            "size": 133451,
+            "MD5": "fe4e6d5aa1bfe14335269967795e06be",
+            "path": "mods/sophisticatedstoragecreateintegration-1.21.1-0.1.17.132.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/sophisticatedstoragecreateintegration-1.21.1-0.1.17.132.jar"
+          }
+        },
+        {
+          "id": "spark-1.10.124-neoforge.jar",
+          "name": "spark-1.10.124-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 3642581,
+            "MD5": "a61dd250e618f8fd62fc6b0943831c50",
+            "path": "mods/spark-1.10.124-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/spark-1.10.124-neoforge.jar"
+          }
+        },
+        {
+          "id": "spawnnotification-neoforge-1.7.3-2.3.0.jar",
+          "name": "spawnnotification-neoforge-1.7.3-2.3.0",
+          "type": "File",
+          "artifact": {
+            "size": 245009,
+            "MD5": "d5115b3a855ae2de18cab2d6cbd77d99",
+            "path": "mods/spawnnotification-neoforge-1.7.3-2.3.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/spawnnotification-neoforge-1.7.3-2.3.0.jar"
+          }
+        },
+        {
+          "id": "subphysicsstaff-0.1.1b.jar",
+          "name": "subphysicsstaff-0.1.1b",
+          "type": "File",
+          "artifact": {
+            "size": 1209910,
+            "MD5": "74828525ab943c7d122ef5d764ecd174",
+            "path": "mods/subphysicsstaff-0.1.1b.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/subphysicsstaff-0.1.1b.jar"
+          }
+        },
+        {
+          "id": "timcore-neoforge-1.7.3-1.32.0.jar",
+          "name": "timcore-neoforge-1.7.3-1.32.0",
+          "type": "File",
+          "artifact": {
+            "size": 306328,
+            "MD5": "20fd4ff1e545a8a670b736339b9dfed8",
+            "path": "mods/timcore-neoforge-1.7.3-1.32.0.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/timcore-neoforge-1.7.3-1.32.0.jar"
+          }
+        },
+        {
+          "id": "twilightforest-1.21.1-4.8.3345-universal.jar",
+          "name": "twilightforest-1.21.1-4.8.3345-universal",
+          "type": "File",
+          "artifact": {
+            "size": 27154121,
+            "MD5": "c1e465c8b2855902368ff4679e1fc2e7",
+            "path": "mods/twilightforest-1.21.1-4.8.3345-universal.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/twilightforest-1.21.1-4.8.3345-universal.jar"
+          }
+        },
+        {
+          "id": "umbral_skies-1.21.1-1.6.1.jar",
+          "name": "umbral_skies-1.21.1-1.6.1",
+          "type": "File",
+          "artifact": {
+            "size": 199972,
+            "MD5": "14d5b66c96b2e9421710d49171f49746",
+            "path": "mods/umbral_skies-1.21.1-1.6.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/umbral_skies-1.21.1-1.6.1.jar"
+          }
+        },
+        {
+          "id": "unchained-neoforge-1.7.3-1.7.1.jar",
+          "name": "unchained-neoforge-1.7.3-1.7.1",
+          "type": "File",
+          "artifact": {
+            "size": 103102,
+            "MD5": "7831d2d163ea3912795d808f76668bba",
+            "path": "mods/unchained-neoforge-1.7.3-1.7.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/unchained-neoforge-1.7.3-1.7.1.jar"
+          }
+        },
+        {
+          "id": "waystones-neoforge-1.21.1-21.1.33.jar",
+          "name": "waystones-neoforge-1.21.1-21.1.33",
+          "type": "File",
+          "artifact": {
+            "size": 878265,
+            "MD5": "14e22ea6ae2ba26e78721689f516ab68",
+            "path": "mods/waystones-neoforge-1.21.1-21.1.33.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/waystones-neoforge-1.21.1-21.1.33.jar"
+          }
+        },
+        {
+          "id": "waystonessable-1.0.2.jar",
+          "name": "waystonessable-1.0.2",
+          "type": "File",
+          "artifact": {
+            "size": 52295,
+            "MD5": "79daf5406035b617d50ad25a6a945dba",
+            "path": "mods/waystonessable-1.0.2.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/waystonessable-1.0.2.jar"
+          }
+        },
+        {
+          "id": "weaponmaster_ydm-1.21.1-neoforge-4.2.7.jar",
+          "name": "weaponmaster_ydm-1.21.1-neoforge-4.2.7",
+          "type": "File",
+          "artifact": {
+            "size": 344392,
+            "MD5": "7617648be8472946beb2795680161aba",
+            "path": "mods/weaponmaster_ydm-1.21.1-neoforge-4.2.7.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/weaponmaster_ydm-1.21.1-neoforge-4.2.7.jar"
+          }
+        },
+        {
+          "id": "xaerominimap-neoforge-1.21.1-25.3.13.jar",
+          "name": "xaerominimap-neoforge-1.21.1-25.3.13",
+          "type": "File",
+          "artifact": {
+            "size": 2138329,
+            "MD5": "093968855bab5ccea048eb2e7519de03",
+            "path": "mods/xaerominimap-neoforge-1.21.1-25.3.13.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/xaerominimap-neoforge-1.21.1-25.3.13.jar"
+          }
+        },
+        {
+          "id": "xaeroworldmap-neoforge-1.21.1-1.40.16.jar",
+          "name": "xaeroworldmap-neoforge-1.21.1-1.40.16",
+          "type": "File",
+          "artifact": {
+            "size": 1387011,
+            "MD5": "0b76c5c6d2e7598a801f159844f7bfab",
+            "path": "mods/xaeroworldmap-neoforge-1.21.1-1.40.16.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/xaeroworldmap-neoforge-1.21.1-1.40.16.jar"
+          }
+        },
+        {
+          "id": "ycurrenci-2.1.0-neoforge-1.21.1.jar",
+          "name": "ycurrenci-2.1.0-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 2028754,
+            "MD5": "e7c1c5257c8f2f20db43465749fcaec7",
+            "path": "mods/ycurrenci-2.1.0-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ycurrenci-2.1.0-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "create_sophback_compat-1.0.jar.disabled",
+          "name": "create_sophback_compat-1.0",
+          "type": "File",
+          "artifact": {
+            "size": 679850,
+            "MD5": "bbea1fe1a3532a6f6243af8f4d349c4e",
+            "path": "mods/create_sophback_compat-1.0.jar.disabled",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/create_sophback_compat-1.0.jar.disabled"
+          }
+        },
+        {
+          "id": "deep_aether-1.21.1-1.1.5.1.jar",
+          "name": "deep_aether-1.21.1-1.1.5.1",
+          "type": "File",
+          "artifact": {
+            "size": 46236011,
+            "MD5": "160bc77f04008c0a4364d32ab49860d6",
+            "path": "mods/deep_aether-1.21.1-1.1.5.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/deep_aether-1.21.1-1.1.5.1.jar"
+          }
+        },
+        {
+          "id": "dimdoors-6.1.2-1.21.1-neoforge.jar",
+          "name": "dimdoors-6.1.2-1.21.1-neoforge",
+          "type": "File",
+          "artifact": {
+            "size": 13781425,
+            "MD5": "8ac7135a193d6955cacd9e11f97ef90b",
+            "path": "mods/dimdoors-6.1.2-1.21.1-neoforge.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/dimdoors-6.1.2-1.21.1-neoforge.jar"
+          }
+        },
+        {
+          "id": "ds_aether_addon-1.1.0-neoforge-1.21.1.jar",
+          "name": "ds_aether_addon-1.1.0-neoforge-1.21.1",
+          "type": "File",
+          "artifact": {
+            "size": 1278940,
+            "MD5": "a9e949850d23d6684c633c09f7cce6b9",
+            "path": "mods/ds_aether_addon-1.1.0-neoforge-1.21.1.jar",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/ds_aether_addon-1.1.0-neoforge-1.21.1.jar"
+          }
+        },
+        {
+          "id": "sophisticatedbackpacks-1.21.1-3.25.48.1759.jar.disabled",
+          "name": "sophisticatedbackpacks-1.21.1-3.25.48.1759",
+          "type": "File",
+          "artifact": {
+            "size": 1053786,
+            "MD5": "cacb3afdcb75450910158d3f5187f24d",
+            "path": "mods/sophisticatedbackpacks-1.21.1-3.25.48.1759.jar.disabled",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/sophisticatedbackpacks-1.21.1-3.25.48.1759.jar.disabled"
+          }
+        },
+        {
+          "id": "sophisticatedbackpackscreateintegration-1.21.1-0.1.5.29.jar.disabled",
+          "name": "sophisticatedbackpackscreateintegration-1.21.1-0.1.5.29",
+          "type": "File",
+          "artifact": {
+            "size": 82316,
+            "MD5": "5cbf8fa204808bbc36a96e9364eb067e",
+            "path": "mods/sophisticatedbackpackscreateintegration-1.21.1-0.1.5.29.jar.disabled",
+            "url": "https://pub-f74ab272a5724b74aad120f5cd7a46da.r2.dev/mods/mods/sophisticatedbackpackscreateintegration-1.21.1-0.1.5.29.jar.disabled"
+          }
+        }
+      ]
+    }
+  ]
+}
