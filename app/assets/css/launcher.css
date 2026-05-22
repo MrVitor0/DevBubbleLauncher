@@ -22,6 +22,11 @@
     src: url('../fonts/Ringbearer.ttf');
 }
 
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../fonts/Minecraft.ttf');
+}
+
 /*******************************************************************************
  *                                                                             *
  * Element Styles                                                              *
@@ -32,6 +37,13 @@
 body, html, div {
     margin: 0px;
     padding: 0px;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 /* Reset p presets. */
@@ -64,13 +76,15 @@ body, button {
     display: flex;
     flex-direction: column;
     transition: background-color 1s ease;
-    /*background-color: rgba(0, 0, 0, 0.5);*/
+    background: linear-gradient(180deg, rgba(14, 15, 19, 0.96), rgba(14, 15, 19, 0.88));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 10px 28px rgba(0, 0, 0, 0.28);
     -webkit-user-select: none;
 }
 
 /* Undraggable region on the top of the frame. */
 #frameResizableTop {
-    height: 2px;
+    height: 4px;
     width: 100%;
     -webkit-app-region: no-drag;
 }
@@ -78,12 +92,13 @@ body, button {
 /* Flexbox to wrap the main frame content. */
 #frameMain {
     display: flex;
-    height: 20px
+    height: 40px;
+    align-items: stretch;
 }
 
 /* Undraggable region on the left and right of the frame. */
 .frameResizableVert {
-    width: 2px;
+    width: 4px;
     -webkit-app-region: no-drag;
 }
 
@@ -91,6 +106,7 @@ body, button {
 #frameContentWin {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     -webkit-app-region: drag;
 }
@@ -106,24 +122,70 @@ body, button {
 
 /* Frame logo (windows only). */
 #frameTitleDock {
-    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    min-width: 0px;
+    padding: 0px 14px;
+}
+
+#frameBrandDock {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0px;
+}
+
+#frameBrandImage {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+#frameBrandText {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0px;
 }
 #frameTitleText {
-    font-size: 14px;
+    font-size: 15px;
     font-family: 'Avenir Medium';
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
+    text-transform: none;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.35);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#frameTitleBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    padding: 0px 8px;
+    border-radius: 999px;
+    background: rgba(120, 199, 93, 0.16);
+    border: 1px solid rgba(120, 199, 93, 0.42);
+    color: #89d166;
+    font-size: 10px;
+    font-family: 'Avenir Medium';
+    letter-spacing: 0.9px;
 }
 
 /* Windows frame button dock. */
 #frameButtonDockWin {
     -webkit-app-region: no-drag !important;
-    position: relative;
-    top: -2px;
-    right: -2px;
-    height: 22px;
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+    height: 100%;
+    padding-right: 4px;
 }
 #frameButtonDockWin > .frameButton:not(:first-child) {
-    margin-left: -4px;
+    margin-left: 0px;
 }
 
 /* Darwin frame button dock: NaN; */
@@ -136,30 +198,43 @@ body, button {
 
 /* Windows Frame Button Styles. */
 .frameButton {
-    background: none;
+    background: transparent;
     border: none;
-    height: 22px;
-    width: 39px;
+    height: 36px;
+    width: 46px;
+    margin: 2px 0px;
+    border-radius: 12px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .frameButton:hover,
 .frameButton:focus {
-    background: rgba(189, 189, 189, 0.43);
+    background: rgba(255, 255, 255, 0.10);
 }
 .frameButton:active {
-    background: rgba(156, 156, 156, 0.43);
+    background: rgba(255, 255, 255, 0.16);
+    transform: scale(0.98);
 }
 .frameButton:focus {
     outline: 0px;
 }
 
+.frameButton svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0.92;
+}
+
 /* Close button is red. */
 #frameButton_close:hover,
 #frameButton_close:focus {
-    background: rgba(255, 53, 53, 0.61) !important;
+    background: rgba(255, 74, 74, 0.78) !important;
 }
 #frameButton_close:active {
-    background: rgba(235, 0, 0, 0.61) !important;
+    background: rgba(230, 39, 39, 0.85) !important;
 }
 
 /* Darwin Frame Button Styles. */
@@ -2450,6 +2525,7 @@ input:checked + .toggleSwitchSlider:before {
     height: 100%;
     position: relative;
     transition: background 2s ease;
+    overflow-x: hidden;
     overflow-y: hidden;
 }
 
@@ -2463,65 +2539,79 @@ input:checked + .toggleSwitchSlider:before {
 }
 #landingContainer > #upper > #left {
     display: inline-flex;
-    width: 15%;
+    flex: 0 0 148px;
+    min-width: 132px;
+    width: auto;
     height: 100%;
     justify-content: flex-end;
 }
 #landingContainer > #upper > #content {
     display: inline-flex;
-    width: 70%;
+    flex: 1 1 auto;
+    min-width: 0px;
+    width: auto;
     height: 100%;
 }
 #landingContainer > #upper > #right {
     display: inline-flex;
-    width: 15%;
+    flex: 0 1 auto;
+    min-width: 0px;
+    width: auto;
     height: 100%;
+    justify-content: flex-end;
 }
 
 /* Lower content container. */
 #landingContainer > #lower {
     height: 23%;
     display: flex;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    align-items: flex-end;
+    gap: 18px;
+    padding: 0px 42px 26px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.16) 62%, rgba(0, 0, 0, 0));
 }
 #landingContainer > #lower > #left {
     position: relative;
     transition: top 2s ease;
     top: 0px;
     height: 100%;
-    width: 33%;
+    flex: 0 1 360px;
+    min-width: 0px;
+    width: auto;
     display: inline-flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 #landingContainer > #lower > #left #content {
     position: relative;
-    top: 25px;
+    top: 0px;
     display: inline-flex;
+    align-items: center;
     line-height: 24px;
-    left: 50px;
+    left: 0px;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: linear-gradient(180deg, rgba(33, 26, 18, 0.82), rgba(12, 12, 12, 0.54));
+    box-shadow: 0px 16px 34px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
+    max-width: 100%;
 }
 #landingContainer > #lower > #center {
-    position: relative;
-    transition: top 2s ease;
-    top: 0px;
-    height: 100%;
-    width: 34%;
-    display: inline-flex;
-    justify-content: center;
+    display: none;
 }
 #landingContainer > #lower > #center #content {
-    position: relative;
-    z-index: 500;
-    transition: top 2s ease;
-    top: 10px;
+    display: none;
 }
 #landingContainer > #lower > #right {
     position: relative;
     transition: top 2s ease;
     top: 0px;
     height: 100%;
-    width: 33%;
+    flex: 1 1 0;
+    min-width: 0px;
+    width: auto;
     display: inline-flex;
+    justify-content: flex-end;
 }
 
 /*******************************************************************************
@@ -2532,12 +2622,12 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Main container. */
 #newsContainer {
+    display: none;
     position: absolute;
     top: 100%;
     height: 100%;
     width: 100%;
     transition: top 2s ease;
-    display: flex;
     align-items: flex-end;
     justify-content: center;
 }
@@ -2855,21 +2945,30 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Logo image. */
 #image_seal {
-    height: 70px;
-    width: auto;
+    height: 84px;
+    width: 84px;
     position: relative;
-    border: 2px solid white;
+    object-fit: contain;
+    border: none;
     box-sizing: border-box;
-    border-radius: 50%;
+    border-radius: 18px;
+    filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.30));
 }
 
 /* Logo container styles. */
 #image_seal_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    margin-top: 50px;
+    height: 104px;
+    width: 104px;
+    margin-top: 34px;
+    padding: 10px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(31, 25, 18, 0.82), rgba(10, 10, 10, 0.44));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 18px 32px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
 }
 
 /* Logo container styles w/ update. */
@@ -2899,7 +2998,7 @@ input:checked + .toggleSwitchSlider:before {
     cursor: pointer;
     visibility: hidden;
     opacity: 0;
-    width: 100px;
+    width: 124px;
     height: 15px;
     background-color: rgb(0, 0, 0);
     color: #fff;
@@ -2908,8 +3007,9 @@ input:checked + .toggleSwitchSlider:before {
     padding: 2px;
     position: absolute;
     z-index: 1;
-    top: 115%;
-    left: -17.5px;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Avenir Medium';
     font-size: 12px;
     transition: visibility 0s linear 0.25s, opacity 0.25s ease;
@@ -2954,9 +3054,12 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 50px;
-    align-items: flex-start;
-    height: calc(100% - 50px);
+    top: 34px;
+    align-items: flex-end;
+    gap: 14px;
+    height: auto;
+    padding-right: 8px;
+    max-width: 100%;
 }
 
 /* Right hand user content container. */
@@ -2964,24 +3067,31 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 12px;
     box-sizing: border-box;
     position: relative;
+    padding: 10px 12px 10px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(31, 25, 18, 0.82), rgba(10, 10, 10, 0.50));
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.05);
+    max-width: 100%;
 }
 
 /* User profile avatar container. */
 #avatarContainer {
-    border-radius: 50%;
-    border: 2px solid #cad7e1;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
     box-sizing: border-box;
-    background: rgba(1, 2, 1, 0.5);
-    height: 70px;
-    width: 70px;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+    background: rgba(10, 10, 10, 0.58);
+    height: 76px;
+    width: 76px;
+    box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.32);
     overflow: hidden;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 /* Avatar edit overlay. */
@@ -3001,7 +3111,7 @@ input:checked + .toggleSwitchSlider:before {
     cursor: pointer;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 16px;
 }
 #avatarOverlay:hover,
 #avatarOverlay:focus {
@@ -3013,15 +3123,17 @@ input:checked + .toggleSwitchSlider:before {
 
 /* User profile name text. */
 #user_text {
-    font-size: 12px;
-    min-width: 135px;
+    font-size: 13px;
+    min-width: 0px;
+    max-width: 150px;
+    font-family: 'Avenir Medium';
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     text-shadow: 0px 0px 20px black;
-    position: absolute;
-    right: 95px;
+    position: static;
     text-align: right;
     -webkit-user-select: initial;
+    line-height: 1.3;
 }
 
 /* Social media icon content container. */
@@ -3029,16 +3141,18 @@ input:checked + .toggleSwitchSlider:before {
     position: relative;
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
-    height: calc(100% - 95px);
-    width: 70px;
-    align-items: center;
+    margin-top: 0px;
+    height: auto;
+    width: auto;
+    align-items: flex-end;
+    max-width: 100%;
 }
 
 /* Social Media Icon division containers. */
 #internalMedia, #externalMedia {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 /* Container object which wraps an icon to ensure fluid transitions. */
@@ -3046,7 +3160,7 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 27px;
+    height: auto;
 }
 
 /* Divider bar between the external and internal icons. */
@@ -3079,12 +3193,17 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Internal media button shared styles. */
 .mediaButton {
-    background: none;
-    border: none;
+    background: linear-gradient(180deg, rgba(31, 25, 18, 0.82), rgba(10, 10, 10, 0.58));
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
     padding: 0px;
     display: flex;
     align-items: center;
+    justify-content: center;
     outline: none;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.28), inset 0px 1px 0px rgba(255, 255, 255, 0.05);
 }
 
 #settingsMediaContainer {
@@ -3094,28 +3213,31 @@ input:checked + .toggleSwitchSlider:before {
 /* Settings icon colors. */
 #settingsSVG {
     stroke: #ffffff;
-    height: 15px;
+    height: 18px;
+    width: 18px;
+    transition: transform 0.25s ease;
 }
 .mediaButton:hover #settingsSVG,
 .mediaButton:focus #settingsSVG,
 .mediaButton:active #settingsSVG {
-    height: 23px;
+    transform: scale(1.08);
 }
 
 /* Settings tooltip styles. */
 #settingsTooltip {
     visibility: hidden;
     opacity: 0;
-    width: 75px;
-    height: 20px;
-    background-color: rgba(0, 0, 0, 0.75);
+    width: 92px;
+    height: 24px;
+    background-color: rgba(12, 12, 12, 0.90);
     text-align: center;
-    border-radius: 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     position: absolute;
     z-index: 1;
-    right: 130%;
-    font-size: 12px;
-    line-height: 20px;
+    right: calc(100% + 12px);
+    font-size: 11px;
+    line-height: 24px;
     transition: visibility 0s linear 0.25s, opacity 0.25s ease;
 }
 #settingsTooltip::after {
@@ -3181,8 +3303,8 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Style for a general label on the bottom of the landing view. */
 .bot_label {
-    font-size: 9px;
-    letter-spacing: 1px;
+    font-size: 10px;
+    letter-spacing: 0.9px;
     font-weight: bold;
     text-shadow: 0px 0px 0px #bebcbb;
 }
@@ -3208,10 +3330,10 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Span which displays the player count of the selected server. */
 #player_count {
-    color: #949494;
-    font-size: 8px;
+    color: #c5d1db;
+    font-size: 9px;
     font-weight: 900;
-    text-shadow: 0px 0px 20px #949494;
+    text-shadow: 0px 0px 20px rgba(197, 209, 219, 0.40);
     margin-left: 10px;
 }
 
@@ -3225,8 +3347,8 @@ input:checked + .toggleSwitchSlider:before {
 /* Icon which displays the status of the mojang services. */
 #mojang_status_icon {
     font-size: 30px;
-    color: #848484;
-    margin-left: 15px;
+    color: #94c973;
+    margin-left: 12px;
     font-family: 'sans-serif';
 }
 
@@ -3237,9 +3359,10 @@ input:checked + .toggleSwitchSlider:before {
     opacity: 0;
     width: 145px;
     min-height: 150px;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(12, 12, 12, 0.90);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 5px 10px;
     z-index: 1;
     font-family: 'Avenir Medium';
@@ -3389,8 +3512,14 @@ input:checked + .toggleSwitchSlider:before {
 /* Main launch content container. */
 #landingContainer > #lower > #right #launch_content {
     position: relative;
-    top: 25px;
+    top: 0px;
     display: inline-flex;
+    align-items: center;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: linear-gradient(180deg, rgba(33, 26, 18, 0.82), rgba(12, 12, 12, 0.54));
+    box-shadow: 0px 16px 34px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
 }
 
 /* The launch button. */
@@ -3398,21 +3527,23 @@ input:checked + .toggleSwitchSlider:before {
     background: none;
     border: none;
     cursor: pointer;
+    font-family: 'Minecraft';
     font-weight: 900;
-    letter-spacing: 2px;
-    text-shadow: 0px 0px 0px #bebcbb;
-    font-size: 20px;
+    letter-spacing: 0px;
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.45), 0px 0px 18px rgba(0, 0, 0, 0.35);
+    font-size: 27px;
+    line-height: 1;
     padding: 0px;
     transition: 0.25s ease;
     outline: none;
 }
 #launch_button:hover,
 #launch_button:focus {
-    text-shadow: 0px 0px 20px #fff, 0px 0px 20px #fff;
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.45), 0px 0px 18px rgba(255, 213, 125, 0.85);
 }
 #launch_button:active {
-    color: #c7c7c7;
-    text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
+    color: #ffd37d;
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.45), 0px 0px 18px rgba(255, 211, 125, 0.90);
 }
 #launch_button:disabled {
     color: #c7c7c7;
@@ -3423,8 +3554,14 @@ input:checked + .toggleSwitchSlider:before {
 /* Launch details main container, hidden until launch processing begins. */
 #launch_details {
     position: relative;
-    top: 25px;
+    top: 0px;
     display: none;
+    align-items: center;
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: linear-gradient(180deg, rgba(33, 26, 18, 0.82), rgba(12, 12, 12, 0.54));
+    box-shadow: 0px 16px 34px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
 }
  
 /* Left side of launch details container, displays percentage and a divider. */
@@ -3459,6 +3596,11 @@ input:checked + .toggleSwitchSlider:before {
     line-height: 24px;
     padding: 0px;
     transition: 0.25s ease;
+    max-width: 240px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #server_selection_button:hover,
 #server_selection_button:focus {
@@ -3504,12 +3646,12 @@ input:checked + .toggleSwitchSlider:before {
 #overlayContainer {
     position: absolute;
     z-index: 500;
-    top: 22px;
+    top: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100% - 22px);
+    height: calc(100% - 44px);
     background: rgba(0, 0, 0, 0.50);
 }
 
@@ -3914,11 +4056,12 @@ input:checked + .toggleSwitchSlider:before {
 #loadingContainer {
     position: absolute;
     z-index: 400;
+    top: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100% - 22px);
+    height: calc(100% - 44px);
 }
 
 /* Loading content container. */
