@@ -182,9 +182,7 @@ exports.addMojangAccount = async function (username, password) {
  * @param {string} username The local username to use for the offline account.
  * @returns {Promise.<Object>} Promise which resolves to the resolved offline account object.
  */
-exports.addOfflineAccount = async function (
-  username = ConfigManager.getDefaultOfflineUsername(),
-) {
+exports.addOfflineAccount = async function (username, options = {}) {
   if (!isDev) {
     return Promise.reject(
       new Error("Offline accounts are only available in development mode."),
@@ -192,7 +190,50 @@ exports.addOfflineAccount = async function (
   }
 
   try {
-    const ret = ConfigManager.addOfflineAuthAccount(username);
+    const promptForUsername = options.promptForUsername === true;
+    const preferredUsername =
+      ConfigManager.getPreferredOfflineUsername() ??
+      ConfigManager.getDefaultOfflineUsername();
+
+    let resolvedUsername =
+      typeof username === "string" && username.trim().length > 0
+        ? username
+        : preferredUsername;
+
+    if (promptForUsername) {
+      let promptValue;
+
+      if (
+        typeof window !== "undefined" &&
+        typeof window.promptOfflineUsername === "function"
+      ) {
+        promptValue = await window.promptOfflineUsername(preferredUsername);
+      } else if (
+        typeof window !== "undefined" &&
+        typeof window.prompt === "function"
+      ) {
+        promptValue = window.prompt(
+          Lang.queryJS("auth.offline.usernamePrompt"),
+          preferredUsername,
+        );
+      }
+
+      if (promptValue == null) {
+        const err = new Error("Offline username selection cancelled.");
+        err.cancelled = true;
+        return Promise.reject(err);
+      }
+
+      if (typeof promptValue === "string" && promptValue.trim().length > 0) {
+        resolvedUsername = promptValue;
+      }
+    }
+
+    const finalUsername =
+      ConfigManager.resolveOfflineUsername(resolvedUsername);
+    ConfigManager.setPreferredOfflineUsername(finalUsername);
+
+    const ret = ConfigManager.addOfflineAuthAccount(finalUsername);
     ConfigManager.save();
     return ret;
   } catch (err) {

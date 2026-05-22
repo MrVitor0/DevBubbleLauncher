@@ -9,10 +9,48 @@ mediaXURL = "#"
 mediaInstagramURL = "#"
 mediaYouTubeURL = "#"
 mediaDiscordURL = "https://discord.gg/zNWUXdt"
+settingsTooltip = "Configurações"
+serverStatus = "SERVIDOR"
+serverStatusPlaceholder = "OFFLINE"
+mojangStatus = "STATUS MOJANG"
+launchButton = "JOGAR"
+launchButtonPlaceholder = "&#8226; Nenhum servidor selecionado"
+launchDetails = "Aguarde.."
+
+[ejs.loginOptions]
+loginOptionsTitle = "Opções de Login"
+loginWithMicrosoft = "Entrar com Microsoft"
+loginWithMojang = "Entrar com Mojang"
+loginOfflineDev = "Entrar Offline (Dev)"
+cancelButton = "Voltar"
 
 [ejs.settings]
+navHeaderText = "Configurações"
+navAccount = "Conta"
+navMinecraft = "Minecraft"
+navMods = "Mods"
+navJava = "Java"
+navLauncher = "Launcher"
+navAbout = "Sobre"
+navUpdates = "Atualizações"
+navDone = "Início"
+tabAccountHeaderText = "Configurações da Conta"
+minecraftTabHeaderText = "Configurações do Minecraft"
+tabModsHeaderText = "Configurações de Mods"
+tabJavaHeaderText = "Configurações do Java"
+launcherTabHeaderText = "Configurações do Launcher"
+aboutTabHeaderText = "Sobre"
 sourceGithubLink = "https://github.com/dscalZi/HeliosLauncher"
 supportLink = "https://github.com/dscalZi/HeliosLauncher/issues"
+
+[ejs.overlay]
+offlineNameTitle = "Nome do jogador offline"
+offlineNameDesc = "Escolha o nome que será usado pelo seu perfil local de testes"
+offlineNameConfirm = "Confirmar"
+offlineNameCancel = "Cancelar"
+
+[js.auth.offline]
+usernamePrompt = "Escolha o nome do jogador offline para os testes"
 
 [ejs.welcome]
 welcomeHeader = "WELCOME TO WESTEROSCRAFT"

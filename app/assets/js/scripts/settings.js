@@ -390,10 +390,16 @@ document.getElementById("settingsAddMicrosoftAccount").onclick = (e) => {
 
 document.getElementById("settingsAddOfflineAccount").onclick = async () => {
   try {
-    const value = await AuthManager.addOfflineAccount();
+    const value = await AuthManager.addOfflineAccount(undefined, {
+      promptForUsername: true,
+    });
     updateSelectedAccount(value);
     await prepareSettings();
   } catch (err) {
+    if (err?.cancelled) {
+      return;
+    }
+
     setOverlayContent(
       Lang.queryJS("loginOptions.offlineLoginErrorTitle"),
       err.message,

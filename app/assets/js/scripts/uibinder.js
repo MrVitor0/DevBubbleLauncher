@@ -69,6 +69,10 @@ async function ensureDevOfflineAccount() {
     return null;
   }
 
+  if (ConfigManager.getPreferredOfflineUsername() == null) {
+    return null;
+  }
+
   try {
     return await AuthManager.addOfflineAccount();
   } catch (err) {

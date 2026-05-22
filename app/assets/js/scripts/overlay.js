@@ -103,12 +103,6 @@ function toggleOverlay(
     }
     $("#overlayContainer").fadeIn({
       duration: 250,
-      start: () => {
-        if (getCurrentView() === VIEWS.settings) {
-          document.getElementById("settingsContainer").style.backgroundColor =
-            "transparent";
-        }
-      },
     });
   } else {
     document.getElementById("main").removeAttribute("overlay");
@@ -116,12 +110,6 @@ function toggleOverlay(
     $("#main *").removeAttr("tabindex");
     $("#overlayContainer").fadeOut({
       duration: 250,
-      start: () => {
-        if (getCurrentView() === VIEWS.settings) {
-          document.getElementById("settingsContainer").style.backgroundColor =
-            "rgba(0, 0, 0, 0.50)";
-        }
-      },
       complete: () => {
         $("#" + content)
           .parent()
@@ -137,6 +125,41 @@ function toggleOverlay(
     });
   }
 }
+
+function promptOfflineUsername(initialValue = "") {
+  return new Promise((resolve) => {
+    const offlineNameInput = document.getElementById("offlineNameInput");
+    const confirmButton = document.getElementById("offlineNameConfirm");
+    const cancelButton = document.getElementById("offlineNameCancel");
+
+    offlineNameInput.value = initialValue;
+
+    confirmButton.onclick = () => {
+      const value = offlineNameInput.value.trim();
+      if (value.length === 0) {
+        offlineNameInput.focus();
+        return;
+      }
+
+      toggleOverlay(false, true, "offlineNameContent");
+      resolve(value);
+    };
+
+    cancelButton.onclick = () => {
+      toggleOverlay(false, true, "offlineNameContent");
+      resolve(null);
+    };
+
+    toggleOverlay(true, true, "offlineNameContent");
+
+    window.setTimeout(() => {
+      offlineNameInput.focus();
+      offlineNameInput.select();
+    }, 275);
+  });
+}
+
+window.promptOfflineUsername = promptOfflineUsername;
 
 async function toggleServerSelection(toggleState) {
   await prepareServerSelectionList();

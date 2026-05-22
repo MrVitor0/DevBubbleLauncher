@@ -103,6 +103,7 @@ const DEFAULT_CONFIG = {
     launcher: {
       allowPrerelease: false,
       dataDirectory: dataPath,
+      devOfflineUsername: null,
     },
   },
   newsCache: {
@@ -478,6 +479,17 @@ exports.addOfflineAuthAccount = function (
 };
 
 /**
+ * Resolve a valid offline username using the same sanitization rules
+ * used by the development offline account flow.
+ *
+ * @param {string} username The candidate username.
+ * @returns {string} A sanitized offline username.
+ */
+exports.resolveOfflineUsername = function (username) {
+  return sanitizeOfflineUsername(username);
+};
+
+/**
  * Update the tokens of an authenticated microsoft account.
  *
  * @param {string} uuid The uuid of the authenticated account.
@@ -551,6 +563,28 @@ exports.addMicrosoftAuthAccount = function (
  */
 exports.getDefaultOfflineUsername = function () {
   return sanitizeOfflineUsername(resolveDefaultOfflineUsername());
+};
+
+/**
+ * Get the persisted preferred offline username for development mode.
+ *
+ * @returns {string|null} The stored username, or null when unset.
+ */
+exports.getPreferredOfflineUsername = function () {
+  const username = config?.settings?.launcher?.devOfflineUsername;
+  return typeof username === "string" && username.trim().length > 0
+    ? sanitizeOfflineUsername(username)
+    : null;
+};
+
+/**
+ * Persist the preferred offline username for development mode.
+ *
+ * @param {string|null} username The username to persist.
+ */
+exports.setPreferredOfflineUsername = function (username) {
+  config.settings.launcher.devOfflineUsername =
+    username == null ? null : sanitizeOfflineUsername(username);
 };
 
 /**

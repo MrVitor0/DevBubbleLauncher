@@ -137,14 +137,12 @@ document
     }
   });
 
-// Bind settings button
-document.getElementById("settingsMediaButton").onclick = async (e) => {
+const openSettingsView = async () => {
   await prepareSettings();
   switchView(getCurrentView(), VIEWS.settings);
 };
 
-// Bind avatar overlay button.
-document.getElementById("avatarOverlay").onclick = async (e) => {
+const openAccountSettingsView = async () => {
   await prepareSettings();
   switchView(getCurrentView(), VIEWS.settings, 500, 500, () => {
     settingsNavItemListener(
@@ -152,6 +150,26 @@ document.getElementById("avatarOverlay").onclick = async (e) => {
       false,
     );
   });
+};
+
+// Bind settings button
+document.getElementById("settingsMediaButton").onclick = async (e) => {
+  e.stopPropagation();
+  await openSettingsView();
+};
+
+document.getElementById("settingsMediaContainer").onclick = async () => {
+  await openSettingsView();
+};
+
+// Bind avatar overlay button.
+document.getElementById("avatarOverlay").onclick = async (e) => {
+  e.stopPropagation();
+  await openAccountSettingsView();
+};
+
+document.getElementById("user_content").onclick = async () => {
+  await openAccountSettingsView();
 };
 
 // Bind selected account

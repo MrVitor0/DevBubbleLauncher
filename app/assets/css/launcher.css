@@ -210,6 +210,11 @@ body, button {
     justify-content: center;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
+
+#frameButton_restoredown {
+    display: none;
+}
+
 .frameButton:hover,
 .frameButton:focus {
     background: rgba(255, 255, 255, 0.10);
@@ -1041,13 +1046,17 @@ body, button {
     height: 100%;
     width: 100%;
     transition: filter 0.25s ease;
-    background: rgba(0, 0, 0, 0.50);
+    background: rgba(0, 0, 0, 0.86);
 }
 
 #loginOptionsContent {
-    border-radius: 3px;
+    border-radius: 14px;
     position: relative;
     top: -5%;
+    padding: 18px 22px 20px;
+    background: rgba(7, 9, 8, 0.84);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 22px 46px rgba(0, 0, 0, 0.42);
 }
 
 .loginOptionsMainContent {
@@ -1067,9 +1076,9 @@ body, button {
 }
 
 .loginOptionButton {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(126, 126, 126, 0.57);
-    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.46);
+    border: 1px solid rgba(165, 185, 165, 0.28);
+    border-radius: 10px;
     height: 50px;
     width: 100%;
     text-align: left;
@@ -1083,7 +1092,7 @@ body, button {
 }
 .loginOptionButton:hover,
 .loginOptionButton:focus {
-    background: rgba(54, 54, 54, 0.25);
+    background: rgba(54, 54, 54, 0.56);
     text-shadow: 0px 0px 20px white;
 }
 
@@ -1128,7 +1137,7 @@ body, button {
     position: relative;
     height: 100%;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.50);
+    background: linear-gradient(180deg, rgba(11, 14, 12, 0.98), rgba(8, 10, 9, 0.98));
     transition: background-color 0.25s cubic-bezier(.02, .01, .47, 1);
 }
 
@@ -1150,8 +1159,11 @@ body, button {
 #settingsContainerLeft {
     padding-top: 4%;
     height: 100%;
-    width: 25%;
+    flex: 0 0 190px;
+    width: auto;
     box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(18, 24, 18, 0.96), rgba(12, 16, 12, 0.96));
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Settings navigation container. */
@@ -1165,7 +1177,9 @@ body, button {
 #settingsNavHeader {
     height: 15%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 26px;
+    box-sizing: border-box;
 }
 #settingsNavHeaderText {
     font-size: 20px;
@@ -1182,9 +1196,12 @@ body, button {
 /* Navigation items content container. */
 #settingsNavItemsContent {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
+    padding-left: 6px;
+    box-sizing: border-box;
 }
 
 /* Navigation item shared styles. */
@@ -1258,8 +1275,12 @@ body, button {
 /* Right hand side of the settings container, for tabs. */
 #settingsContainerRight {
     height: 100%;
-    width: 75%;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0px;
     box-sizing: border-box;
+    background: rgba(10, 12, 11, 0.94);
+    padding: 0px 26px 0px 18px;
 }
 
 /* Settings tab shared styles. */
@@ -2538,9 +2559,9 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
 }
 #landingContainer > #upper > #left {
-    display: inline-flex;
-    flex: 0 0 148px;
-    min-width: 132px;
+    display: none;
+    flex: 0 0 0px;
+    min-width: 0px;
     width: auto;
     height: 100%;
     justify-content: flex-end;
@@ -2553,12 +2574,17 @@ input:checked + .toggleSwitchSlider:before {
     height: 100%;
 }
 #landingContainer > #upper > #right {
-    display: inline-flex;
-    flex: 0 1 auto;
+    display: flex;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    flex: none;
     min-width: 0px;
     width: auto;
-    height: 100%;
+    height: auto;
     justify-content: flex-end;
+    z-index: 2;
+    max-width: calc(100% - 36px);
 }
 
 /* Lower content container. */
@@ -2591,9 +2617,9 @@ input:checked + .toggleSwitchSlider:before {
     left: 0px;
     padding: 14px 18px;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: linear-gradient(180deg, rgba(33, 26, 18, 0.82), rgba(12, 12, 12, 0.54));
-    box-shadow: 0px 16px 34px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(155, 212, 108, 0.24);
+    background: linear-gradient(180deg, rgba(74, 109, 45, 0.90), rgba(33, 68, 26, 0.82));
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.24), inset 0px 1px 0px rgba(203, 241, 167, 0.14);
     max-width: 100%;
 }
 #landingContainer > #lower > #center {
@@ -2957,7 +2983,7 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Logo container styles. */
 #image_seal_container {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -3052,13 +3078,14 @@ input:checked + .toggleSwitchSlider:before {
 /*  Wrapper container for top, right content. */
 #rightContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
-    top: 34px;
-    align-items: flex-end;
-    gap: 14px;
+    top: 0px;
+    right: 0px;
+    align-items: center;
+    gap: 10px;
     height: auto;
-    padding-right: 8px;
+    padding-right: 0px;
     max-width: 100%;
 }
 
@@ -3067,36 +3094,38 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     box-sizing: border-box;
     position: relative;
-    padding: 10px 12px 10px 16px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(180deg, rgba(31, 25, 18, 0.82), rgba(10, 10, 10, 0.50));
-    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.05);
+    height: 40px;
+    padding: 0px 8px 0px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(155, 212, 108, 0.24);
+    background: linear-gradient(180deg, rgba(74, 109, 45, 0.94), rgba(33, 68, 26, 0.90));
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.22), inset 0px 1px 0px rgba(203, 241, 167, 0.16);
     max-width: 100%;
+    cursor: pointer;
 }
 
 /* User profile avatar container. */
 #avatarContainer {
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0px;
+    border: none;
     box-sizing: border-box;
-    background: rgba(10, 10, 10, 0.58);
-    height: 76px;
-    width: 76px;
-    box-shadow: 0px 10px 22px rgba(0, 0, 0, 0.32);
-    overflow: hidden;
+    background: transparent;
+    height: 32px;
+    width: 32px;
+    box-shadow: none;
+    overflow: visible;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 /* Avatar edit overlay. */
 #avatarOverlay {
-    opacity: 0;
+    opacity: 1;
     position: absolute;
     z-index: 1;
     display: flex;
@@ -3104,55 +3133,58 @@ input:checked + .toggleSwitchSlider:before {
     align-items: center;
     transition: 0.25s ease;
     font-weight: bold;
-    letter-spacing: 2px;
-    background-color: rgba(0, 0, 0, 0.35);
+    letter-spacing: 0px;
+    color: transparent;
+    font-size: 0px;
+    background-color: transparent;
     -webkit-user-select: none;
     border: none;
     cursor: pointer;
     width: 100%;
     height: 100%;
-    border-radius: 16px;
+    border-radius: 0px;
 }
 #avatarOverlay:hover,
 #avatarOverlay:focus {
     opacity: 1;
+    background-color: transparent;
 }
 #avatarOverlay:active {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: transparent;
 }
 
 /* User profile name text. */
 #user_text {
-    font-size: 13px;
+    font-size: 14px;
     min-width: 0px;
-    max-width: 150px;
+    max-width: 92px;
     font-family: 'Avenir Medium';
     font-weight: 900;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.3px;
     text-shadow: 0px 0px 20px black;
     position: static;
     text-align: right;
     -webkit-user-select: initial;
-    line-height: 1.3;
+    line-height: 1.1;
 }
 
 /* Social media icon content container. */
 #mediaContent {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 0px;
     height: auto;
     width: auto;
-    align-items: flex-end;
+    align-items: center;
     max-width: 100%;
 }
 
 /* Social Media Icon division containers. */
 #internalMedia, #externalMedia {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    gap: 8px;
 }
 
 /* Container object which wraps an icon to ensure fluid transitions. */
@@ -3161,6 +3193,7 @@ input:checked + .toggleSwitchSlider:before {
     justify-content: center;
     align-items: center;
     height: auto;
+    cursor: pointer;
 }
 
 /* Divider bar between the external and internal icons. */
@@ -3193,28 +3226,29 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Internal media button shared styles. */
 .mediaButton {
-    background: linear-gradient(180deg, rgba(31, 25, 18, 0.82), rgba(10, 10, 10, 0.58));
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: linear-gradient(180deg, rgba(77, 117, 45, 0.92), rgba(37, 73, 27, 0.88));
+    border: 1px solid rgba(155, 212, 108, 0.28);
     border-radius: 14px;
     padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     outline: none;
-    width: 48px;
-    height: 48px;
-    box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.28), inset 0px 1px 0px rgba(255, 255, 255, 0.05);
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.22), inset 0px 1px 0px rgba(203, 241, 167, 0.18);
 }
 
 #settingsMediaContainer {
     position: relative;
+    cursor: pointer;
 }
 
 /* Settings icon colors. */
 #settingsSVG {
     stroke: #ffffff;
-    height: 18px;
-    width: 18px;
+    height: 16px;
+    width: 16px;
     transition: transform 0.25s ease;
 }
 .mediaButton:hover #settingsSVG,
@@ -3514,41 +3548,55 @@ input:checked + .toggleSwitchSlider:before {
     position: relative;
     top: 0px;
     display: inline-flex;
-    align-items: center;
-    padding: 14px 18px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: linear-gradient(180deg, rgba(33, 26, 18, 0.82), rgba(12, 12, 12, 0.54));
-    box-shadow: 0px 16px 34px rgba(0, 0, 0, 0.30), inset 0px 1px 0px rgba(255, 255, 255, 0.06);
+    align-items: flex-end;
+    gap: 10px;
+    padding: 0px;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+#launch_content .bot_divider {
+    display: none;
 }
 
 /* The launch button. */
 #launch_button {
-    background: none;
-    border: none;
+    background: linear-gradient(180deg, rgba(209, 154, 55, 0.98), rgba(145, 93, 29, 0.96));
+    border: 1px solid rgba(255, 226, 149, 0.32);
+    border-radius: 16px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Minecraft';
     font-weight: 900;
     letter-spacing: 0px;
-    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.45), 0px 0px 18px rgba(0, 0, 0, 0.35);
+    text-shadow: 0px 2px 0px rgba(74, 44, 12, 0.78), 0px 0px 12px rgba(74, 44, 12, 0.30);
     font-size: 27px;
-    line-height: 1;
-    padding: 0px;
+    line-height: 0.92;
+    min-width: 176px;
+    min-height: 58px;
+    padding: 4px 22px 0px;
     transition: 0.25s ease;
     outline: none;
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.26), inset 0px 1px 0px rgba(255, 239, 184, 0.24);
 }
 #launch_button:hover,
 #launch_button:focus {
-    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.45), 0px 0px 18px rgba(255, 213, 125, 0.85);
+    background: linear-gradient(180deg, rgba(224, 169, 64, 1), rgba(159, 102, 34, 0.98));
+    text-shadow: 0px 2px 0px rgba(74, 44, 12, 0.78), 0px 0px 16px rgba(255, 230, 164, 0.54);
 }
 #launch_button:active {
-    color: #ffd37d;
-    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.45), 0px 0px 18px rgba(255, 211, 125, 0.90);
+    color: #fff1cf;
+    background: linear-gradient(180deg, rgba(184, 132, 45, 1), rgba(128, 79, 24, 1));
+    text-shadow: 0px 2px 0px rgba(74, 44, 12, 0.78), 0px 0px 12px rgba(255, 230, 164, 0.36);
 }
 #launch_button:disabled {
     color: #c7c7c7;
     cursor: default;
     pointer-events: none;
+    opacity: 0.72;
 }
 
 /* Launch details main container, hidden until launch processing begins. */
@@ -3589,25 +3637,33 @@ input:checked + .toggleSwitchSlider:before {
 
 /* Button which opens the server selection view. */
 #server_selection_button {
-    background: none;
-    border: none;
+    background: linear-gradient(180deg, rgba(74, 109, 45, 0.94), rgba(33, 68, 26, 0.90));
+    border: 1px solid rgba(155, 212, 108, 0.24);
+    border-radius: 16px;
     outline: none;
     cursor: pointer;
-    line-height: 24px;
-    padding: 0px;
+    line-height: 1.25;
+    padding: 0px 16px;
     transition: 0.25s ease;
-    max-width: 240px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 58px;
+    max-width: 252px;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.26), inset 0px 1px 0px rgba(212, 247, 172, 0.16);
 }
 #server_selection_button:hover,
 #server_selection_button:focus {
+    background: linear-gradient(180deg, rgba(87, 128, 53, 0.98), rgba(41, 82, 31, 0.95));
     text-shadow: 0px 0px 20px #fff, 0px 0px 20px #fff, 0px 0px 20px #fff;
 }
 #server_selection_button:active {
     color: #c7c7c7;
+    background: linear-gradient(180deg, rgba(72, 108, 43, 1), rgba(36, 73, 28, 1));
     text-shadow: 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7, 0px 0px 20px #c7c7c7;
 }
 
@@ -3670,6 +3726,21 @@ input:checked + .toggleSwitchSlider:before {
     text-align: center;
 }
 
+#offlineNameContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    box-sizing: border-box;
+    padding: 18px 18px 16px;
+    border-radius: 14px;
+    background: rgba(10, 12, 11, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.34);
+    text-align: center;
+}
+
 /* Main overlay content anchor styles. */
 #overlayContent a,
 #overlayDismiss {
@@ -3711,6 +3782,99 @@ input:checked + .toggleSwitchSlider:before {
     font-size: 12px;
     font-weight: bold;
     -webkit-user-select: initial;
+}
+
+#offlineNameTitle {
+    font-family: 'Avenir Medium';
+    font-size: 18px;
+    font-weight: bold;
+    -webkit-user-select: initial;
+}
+
+#offlineNameDesc {
+    font-size: 12px;
+    font-weight: bold;
+    -webkit-user-select: initial;
+    margin: 10px 0px 12px;
+}
+
+#offlineNameInput {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0px 12px;
+    color: white;
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 10px;
+    border: 1px solid rgba(126, 126, 126, 0.57);
+    font-family: 'Avenir Book';
+    transition: 0.25s ease;
+}
+
+#offlineNameInput:focus {
+    outline: none;
+    border-color: rgba(155, 212, 108, 0.6);
+    box-shadow: 0px 0px 0px 1px rgba(155, 212, 108, 0.18);
+}
+
+#offlineNameActionContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+    margin-top: 14px;
+}
+
+#offlineNameConfirm {
+    min-width: 124px;
+    height: 38px;
+    padding: 0px 18px;
+    background: linear-gradient(180deg, rgba(158, 211, 110, 0.95), rgba(108, 158, 68, 0.95));
+    border: 1px solid rgba(195, 231, 165, 0.7);
+    color: white;
+    font-family: 'Avenir Medium';
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#offlineNameConfirm:hover,
+#offlineNameConfirm:focus {
+    box-shadow: 0px 10px 20px rgba(108, 158, 68, 0.28);
+    filter: brightness(1.04);
+    outline: none;
+}
+
+#offlineNameConfirm:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+#offlineNameCancel {
+    min-width: 124px;
+    height: 38px;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    color: rgba(230, 230, 230, 0.9);
+    transition: 0.25s ease;
+}
+
+#offlineNameCancel:hover,
+#offlineNameCancel:focus {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.98);
+}
+
+#offlineNameCancel:active {
+    transform: translateY(1px);
 }
 
 /* Div which contains action buttons. */
@@ -4062,6 +4226,7 @@ input:checked + .toggleSwitchSlider:before {
     justify-content: center;
     width: 100%;
     height: calc(100% - 44px);
+    background: rgba(8, 10, 9, 0.96);
 }
 
 /* Loading content container. */
@@ -4079,6 +4244,8 @@ input:checked + .toggleSwitchSlider:before {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 320px;
+    height: 320px;
 }
 
 /* Stationary image for the spinner. */
@@ -4086,13 +4253,20 @@ input:checked + .toggleSwitchSlider:before {
     position: absolute;
     width: 277px;
     height: auto;
+    z-index: 2;
 }
 
 /* Rotating image for the spinner. */
 #loadSpinnerImage {
-    width: 280px;
-    height: auto;
-    z-index: 400;
+    width: 316px;
+    height: 316px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 10px solid rgba(255, 255, 255, 0.06);
+    border-top-color: rgba(231, 188, 86, 0.95);
+    border-right-color: rgba(128, 188, 84, 0.85);
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.24);
+    z-index: 1;
 }
 
 /* Rotating animation for the spinner. */

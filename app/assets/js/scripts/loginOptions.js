@@ -50,7 +50,9 @@ loginOptionMojang.onclick = (e) => {
 
 loginOptionOffline.onclick = async () => {
   try {
-    const value = await AuthManager.addOfflineAccount();
+    const value = await AuthManager.addOfflineAccount(undefined, {
+      promptForUsername: true,
+    });
     updateSelectedAccount(value);
     switchView(
       getCurrentView(),
@@ -64,6 +66,10 @@ loginOptionOffline.onclick = async () => {
       },
     );
   } catch (err) {
+    if (err?.cancelled) {
+      return;
+    }
+
     setOverlayContent(
       Lang.queryJS("loginOptions.offlineLoginErrorTitle"),
       err.message,

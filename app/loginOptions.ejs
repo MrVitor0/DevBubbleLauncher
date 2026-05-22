@@ -3,6 +3,21 @@
     <div class="loginOptionsMainContent">
       <h2><%- lang('loginOptions.loginOptionsTitle') %></h2>
       <div class="loginOptionActions">
+        <div
+          class="loginOptionButtonContainer"
+          id="loginOptionOfflineContainer"
+          style="display: none"
+        >
+          <button id="loginOptionOffline" class="loginOptionButton">
+            <img
+              src="./assets/images/SealCircle.png"
+              width="22"
+              height="22"
+              alt=""
+            />
+            <span><%- lang('loginOptions.loginOfflineDev') %></span>
+          </button>
+        </div>
         <div class="loginOptionButtonContainer">
           <button id="loginOptionMicrosoft" class="loginOptionButton">
             <svg
@@ -41,21 +56,6 @@
               />
             </svg>
             <span><%- lang('loginOptions.loginWithMojang') %></span>
-          </button>
-        </div>
-        <div
-          class="loginOptionButtonContainer"
-          id="loginOptionOfflineContainer"
-          style="display: none"
-        >
-          <button id="loginOptionOffline" class="loginOptionButton">
-            <img
-              src="./assets/images/SealCircle.png"
-              width="22"
-              height="22"
-              alt=""
-            />
-            <span><%- lang('loginOptions.loginOfflineDev') %></span>
           </button>
         </div>
       </div>
