@@ -1673,7 +1673,7 @@ function populateAboutVersionInformation() {
  */
 function populateReleaseNotes() {
   $.ajax({
-    url: "https://github.com/dscalzi/HeliosLauncher/releases.atom",
+    url: "https://github.com/MrVitor0/DevBubbleLauncher/releases.atom",
     success: (data) => {
       const version = "v" + remote.app.getVersion();
       const entries = $(data).find("entry");

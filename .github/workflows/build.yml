@@ -1,6 +1,8 @@
 name: Build
 
-on: push
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   release:
@@ -36,3 +38,16 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run dist
         shell: bash
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ runner.os }}-dist
+          path: |
+            dist/*.AppImage
+            dist/*.blockmap
+            dist/*.dmg
+            dist/*.exe
+            dist/*.yml
+            dist/*.zip
+          if-no-files-found: ignore

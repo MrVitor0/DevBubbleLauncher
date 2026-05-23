@@ -4,7 +4,7 @@
 title = "DevBubble Launcher"
 
 [ejs.landing]
-mediaGitHubURL = "https://github.com/dscalzi/HeliosLauncher"
+mediaGitHubURL = "https://github.com/MrVitor0/DevBubbleLauncher"
 mediaXURL = "#"
 mediaInstagramURL = "#"
 mediaYouTubeURL = "#"
@@ -40,8 +40,8 @@ tabModsHeaderText = "Configurações de Mods"
 tabJavaHeaderText = "Configurações do Java"
 launcherTabHeaderText = "Configurações do Launcher"
 aboutTabHeaderText = "Sobre"
-sourceGithubLink = "https://github.com/dscalZi/HeliosLauncher"
-supportLink = "https://github.com/dscalZi/HeliosLauncher/issues"
+sourceGithubLink = "https://github.com/MrVitor0/DevBubbleLauncher"
+supportLink = "https://github.com/MrVitor0/DevBubbleLauncher/issues"
 
 [ejs.overlay]
 offlineNameTitle = "Nome do jogador offline"

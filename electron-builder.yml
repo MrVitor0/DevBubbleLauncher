@@ -1,8 +1,13 @@
-appId: 'helioslauncher'
-productName: 'Helios Launcher'
-artifactName: '${productName}-setup-${version}.${ext}'
+appId: 'com.devbubble.launcher'
+productName: 'DevBubble Launcher'
+artifactName: 'DevBubble-Launcher-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2018-2026 Daniel Scalzi'
+copyright: 'Copyright © 2026 DevBubble'
+
+publish:
+  provider: 'github'
+  owner: 'MrVitor0'
+  repo: 'DevBubbleLauncher'
 
 asar: true
 compression: 'maximum'
@@ -33,14 +38,18 @@ mac:
       arch:
         - 'x64'
         - 'arm64'
-  artifactName: '${productName}-setup-${version}-${arch}.${ext}'
+    - target: 'zip'
+      arch:
+        - 'x64'
+        - 'arm64'
+  artifactName: 'DevBubble-Launcher-setup-${version}-${arch}.${ext}'
   category: 'public.app-category.games'
 
 # Linux Configuration
 linux: 
   target: 'AppImage'
-  maintainer: 'Daniel Scalzi'
-  vendor: 'Daniel Scalzi'
+  maintainer: 'DevBubble'
+  vendor: 'DevBubble'
   synopsis: 'Modded Minecraft Launcher'
   description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.'
   category: 'Game'
