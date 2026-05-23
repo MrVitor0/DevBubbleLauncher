@@ -26,9 +26,7 @@ function loginOptionsCancelEnabled(val) {
   }
 }
 
-if (isDev) {
-  $(loginOptionOfflineContainer).show();
-}
+$(loginOptionOfflineContainer).show();
 
 loginOptionMicrosoft.onclick = (e) => {
   switchView(getCurrentView(), VIEWS.waiting, 500, 500, () => {

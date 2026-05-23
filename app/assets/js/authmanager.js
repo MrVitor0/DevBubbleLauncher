@@ -15,7 +15,6 @@ const { RestResponseStatus } = require("helios-core/common");
 const { MojangRestAPI, MojangErrorCode } = require("helios-core/mojang");
 const { MicrosoftAuth, MicrosoftErrorCode } = require("helios-core/microsoft");
 const { AZURE_CLIENT_ID } = require("./ipcconstants");
-const isDev = require("./isdev");
 const Lang = require("./langloader");
 
 const log = LoggerUtil.getLogger("AuthManager");
@@ -177,15 +176,15 @@ exports.addMojangAccount = async function (username, password) {
 };
 
 /**
- * Add a local offline account for development-only workflows.
+ * Add a local offline account for local testing workflows.
  *
  * @param {string} username The local username to use for the offline account.
  * @returns {Promise.<Object>} Promise which resolves to the resolved offline account object.
  */
 exports.addOfflineAccount = async function (username, options = {}) {
-  if (!isDev) {
+  if (!ConfigManager.isOfflineAuthenticationEnabled()) {
     return Promise.reject(
-      new Error("Offline accounts are only available in development mode."),
+      new Error("Offline accounts are currently disabled."),
     );
   }
 
@@ -423,7 +422,7 @@ exports.removeOfflineAccount = async function (uuid) {
 };
 
 async function validateSelectedOfflineAccount() {
-  return isDev;
+  return ConfigManager.isOfflineAuthenticationEnabled();
 }
 
 /**

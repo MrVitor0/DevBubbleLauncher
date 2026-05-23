@@ -4,8 +4,6 @@ const { LoggerUtil } = require("helios-core");
 const os = require("os");
 const path = require("path");
 
-const isDev = require("./isdev");
-
 const logger = LoggerUtil.getLogger("ConfigManager");
 
 const sysRoot =
@@ -126,6 +124,10 @@ const OFFLINE_ACCESS_TOKEN = "0";
 const OFFLINE_USERNAME_FALLBACK = "DevPlayer";
 const OFFLINE_USERNAME_SANITIZER = /[^a-zA-Z0-9_]/g;
 
+function isOfflineAuthenticationEnabled() {
+  return true;
+}
+
 function resolveDefaultOfflineUsername() {
   const envUsername =
     process.env.DEVBUBBLE_OFFLINE_USERNAME ?? process.env.DEV_OFFLINE_USERNAME;
@@ -164,8 +166,8 @@ function createOfflineUUID(username) {
   return `${hex.substring(0, 8)}-${hex.substring(8, 12)}-${hex.substring(12, 16)}-${hex.substring(16, 20)}-${hex.substring(20)}`;
 }
 
-function purgeDevOnlyAccounts() {
-  if (isDev || config == null) {
+function purgeDisabledOfflineAccounts() {
+  if (config == null || isOfflineAuthenticationEnabled()) {
     return false;
   }
 
@@ -242,7 +244,7 @@ exports.load = function () {
     }
     if (doValidate) {
       config = validateKeySet(DEFAULT_CONFIG, config);
-      purgeDevOnlyAccounts();
+      purgeDisabledOfflineAccounts();
       exports.save();
     }
   }
@@ -455,7 +457,7 @@ exports.addMojangAuthAccount = function (
 };
 
 /**
- * Adds a local offline account for development-only workflows.
+ * Adds a local offline account for local testing workflows.
  *
  * @param {string} username The local username to use for the offline account.
  * @returns {Object} The offline account object created by this action.
@@ -487,6 +489,15 @@ exports.addOfflineAuthAccount = function (
  */
 exports.resolveOfflineUsername = function (username) {
   return sanitizeOfflineUsername(username);
+};
+
+/**
+ * Determine whether local offline authentication is enabled.
+ *
+ * @returns {boolean} True if offline login should be available.
+ */
+exports.isOfflineAuthenticationEnabled = function () {
+  return isOfflineAuthenticationEnabled();
 };
 
 /**
@@ -557,7 +568,7 @@ exports.addMicrosoftAuthAccount = function (
 };
 
 /**
- * Resolve the default offline username for development workflows.
+ * Resolve the default offline username for local testing workflows.
  *
  * @returns {string} The sanitized default offline username.
  */
@@ -566,7 +577,7 @@ exports.getDefaultOfflineUsername = function () {
 };
 
 /**
- * Get the persisted preferred offline username for development mode.
+ * Get the persisted preferred offline username for offline login.
  *
  * @returns {string|null} The stored username, or null when unset.
  */
@@ -578,7 +589,7 @@ exports.getPreferredOfflineUsername = function () {
 };
 
 /**
- * Persist the preferred offline username for development mode.
+ * Persist the preferred offline username for offline login.
  *
  * @param {string|null} username The username to persist.
  */

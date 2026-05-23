@@ -581,10 +581,18 @@ class ProcessBuilder {
     );
   }
 
-  _applyLauncherOptionsPreset(nextLines) {
+  _isManagedKeybindOption(key) {
+    return key.startsWith("key_");
+  }
+
+  _applyLauncherOptionsPreset(nextLines, shouldApplyOption = () => true) {
     let changed = false;
 
     for (const [key, value] of loadLauncherOptionsPreset()) {
+      if (!shouldApplyOption(key)) {
+        continue;
+      }
+
       changed = this._upsertOptionLine(nextLines, key, value) || changed;
     }
 
@@ -593,9 +601,8 @@ class ProcessBuilder {
 
   _ensureOptionsDefaults() {
     const optionsPath = path.join(this.gameDir, "options.txt");
-    const raw = fs.pathExistsSync(optionsPath)
-      ? fs.readFileSync(optionsPath, "utf8")
-      : "";
+    const hasOptionsFile = fs.pathExistsSync(optionsPath);
+    const raw = hasOptionsFile ? fs.readFileSync(optionsPath, "utf8") : "";
     const lines = raw.length > 0 ? raw.replace(/\r\n/g, "\n").split("\n") : [];
     const normalizedLines =
       lines.length > 0 && lines[lines.length - 1] === ""
@@ -603,12 +610,22 @@ class ProcessBuilder {
         : lines;
     const nextLines = [...normalizedLines];
     let changed = false;
-    const shouldApplyPreset =
+    const shouldApplyVersionedPreset =
+      !hasOptionsFile ||
       this._getAppliedOptionsPresetVersion() !==
-      LAUNCHER_OPTIONS_PRESET_VERSION;
+        LAUNCHER_OPTIONS_PRESET_VERSION;
 
-    if (shouldApplyPreset) {
-      changed = this._applyLauncherOptionsPreset(nextLines) || changed;
+    changed =
+      this._applyLauncherOptionsPreset(nextLines, (key) =>
+        this._isManagedKeybindOption(key),
+      ) || changed;
+
+    if (shouldApplyVersionedPreset) {
+      changed =
+        this._applyLauncherOptionsPreset(
+          nextLines,
+          (key) => !this._isManagedKeybindOption(key),
+        ) || changed;
     }
 
     const defaultResourcePacks = this._resolveAvailableFiles(
@@ -638,7 +655,7 @@ class ProcessBuilder {
       );
     }
 
-    if (shouldApplyPreset) {
+    if (shouldApplyVersionedPreset) {
       this._markOptionsPresetApplied();
     }
   }
